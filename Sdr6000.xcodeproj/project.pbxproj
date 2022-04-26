@@ -10,6 +10,22 @@
 		9136826427442B5500A315C0 /* Sdr6000App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136826327442B5500A315C0 /* Sdr6000App.swift */; };
 		9136826827442B5A00A315C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9136826727442B5A00A315C0 /* Assets.xcassets */; };
 		9136826B27442B5A00A315C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9136826A27442B5A00A315C0 /* Preview Assets.xcassets */; };
+		9F00E4B4281433F900C19F9A /* ApiViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B3281433F900C19F9A /* ApiViewer */; };
+		9F00E4B6281433F900C19F9A /* ClientView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B5281433F900C19F9A /* ClientView */; };
+		9F00E4B8281433F900C19F9A /* LanDiscovery in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B7281433F900C19F9A /* LanDiscovery */; };
+		9F00E4BA281433F900C19F9A /* LoginView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B9281433F900C19F9A /* LoginView */; };
+		9F00E4BC281433F900C19F9A /* LogViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BB281433F900C19F9A /* LogViewer */; };
+		9F00E4BE281433F900C19F9A /* PickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BD281433F900C19F9A /* PickerView */; };
+		9F00E4C0281433F900C19F9A /* ProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BF281433F900C19F9A /* ProgressView */; };
+		9F00E4C2281433F900C19F9A /* Radio in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C1281433F900C19F9A /* Radio */; };
+		9F00E4C4281433F900C19F9A /* RemoteViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C3281433F900C19F9A /* RemoteViewer */; };
+		9F00E4C6281433F900C19F9A /* SecureStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C5281433F900C19F9A /* SecureStorage */; };
+		9F00E4C8281433F900C19F9A /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C7281433F900C19F9A /* Shared */; };
+		9F00E4CA281433F900C19F9A /* TcpCommands in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C9281433F900C19F9A /* TcpCommands */; };
+		9F00E4CC281433F900C19F9A /* UdpStreams in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CB281433F900C19F9A /* UdpStreams */; };
+		9F00E4CE281433F900C19F9A /* WanDiscovery in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CD281433F900C19F9A /* WanDiscovery */; };
+		9F00E4D0281433F900C19F9A /* XCGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CF281433F900C19F9A /* XCGWrapper */; };
+		9F00E4D628143A8E00C19F9A /* SdrViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4D528143A8E00C19F9A /* SdrViewer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +35,7 @@
 		9136826A27442B5A00A315C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9136826C27442B5A00A315C0 /* Sdr6000.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sdr6000.entitlements; sourceTree = "<group>"; };
 		9176D6EC27907BE70094E3D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9F00E4D42814397900C19F9A /* Components6000 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Components6000; path = ../Components6000; sourceTree = "<group>"; };
 		9F5F20E127FB385400A0599D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -27,6 +44,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F00E4B6281433F900C19F9A /* ClientView in Frameworks */,
+				9F00E4C6281433F900C19F9A /* SecureStorage in Frameworks */,
+				9F00E4C0281433F900C19F9A /* ProgressView in Frameworks */,
+				9F00E4BE281433F900C19F9A /* PickerView in Frameworks */,
+				9F00E4D628143A8E00C19F9A /* SdrViewer in Frameworks */,
+				9F00E4BC281433F900C19F9A /* LogViewer in Frameworks */,
+				9F00E4CC281433F900C19F9A /* UdpStreams in Frameworks */,
+				9F00E4C4281433F900C19F9A /* RemoteViewer in Frameworks */,
+				9F00E4C2281433F900C19F9A /* Radio in Frameworks */,
+				9F00E4CE281433F900C19F9A /* WanDiscovery in Frameworks */,
+				9F00E4BA281433F900C19F9A /* LoginView in Frameworks */,
+				9F00E4D0281433F900C19F9A /* XCGWrapper in Frameworks */,
+				9F00E4CA281433F900C19F9A /* TcpCommands in Frameworks */,
+				9F00E4B8281433F900C19F9A /* LanDiscovery in Frameworks */,
+				9F00E4C8281433F900C19F9A /* Shared in Frameworks */,
+				9F00E4B4281433F900C19F9A /* ApiViewer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +69,7 @@
 		9136825727442B5500A315C0 = {
 			isa = PBXGroup;
 			children = (
+				9F00E4D42814397900C19F9A /* Components6000 */,
 				9176D6EC27907BE70094E3D8 /* README.md */,
 				9136826227442B5500A315C0 /* Sdr6000 */,
 				9136826127442B5500A315C0 /* Products */,
@@ -95,6 +129,22 @@
 			);
 			name = Sdr6000;
 			packageProductDependencies = (
+				9F00E4B3281433F900C19F9A /* ApiViewer */,
+				9F00E4B5281433F900C19F9A /* ClientView */,
+				9F00E4B7281433F900C19F9A /* LanDiscovery */,
+				9F00E4B9281433F900C19F9A /* LoginView */,
+				9F00E4BB281433F900C19F9A /* LogViewer */,
+				9F00E4BD281433F900C19F9A /* PickerView */,
+				9F00E4BF281433F900C19F9A /* ProgressView */,
+				9F00E4C1281433F900C19F9A /* Radio */,
+				9F00E4C3281433F900C19F9A /* RemoteViewer */,
+				9F00E4C5281433F900C19F9A /* SecureStorage */,
+				9F00E4C7281433F900C19F9A /* Shared */,
+				9F00E4C9281433F900C19F9A /* TcpCommands */,
+				9F00E4CB281433F900C19F9A /* UdpStreams */,
+				9F00E4CD281433F900C19F9A /* WanDiscovery */,
+				9F00E4CF281433F900C19F9A /* XCGWrapper */,
+				9F00E4D528143A8E00C19F9A /* SdrViewer */,
 			);
 			productName = TestDiscoveryApp;
 			productReference = 9136826027442B5500A315C0 /* Sdr6000.app */;
@@ -300,7 +350,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,7 +382,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,11 +419,93 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/K3TZR/Components6000.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F00E4B3281433F900C19F9A /* ApiViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = ApiViewer;
+		};
+		9F00E4B5281433F900C19F9A /* ClientView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = ClientView;
+		};
+		9F00E4B7281433F900C19F9A /* LanDiscovery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = LanDiscovery;
+		};
+		9F00E4B9281433F900C19F9A /* LoginView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = LoginView;
+		};
+		9F00E4BB281433F900C19F9A /* LogViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = LogViewer;
+		};
+		9F00E4BD281433F900C19F9A /* PickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = PickerView;
+		};
+		9F00E4BF281433F900C19F9A /* ProgressView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = ProgressView;
+		};
+		9F00E4C1281433F900C19F9A /* Radio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = Radio;
+		};
+		9F00E4C3281433F900C19F9A /* RemoteViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = RemoteViewer;
+		};
+		9F00E4C5281433F900C19F9A /* SecureStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = SecureStorage;
+		};
+		9F00E4C7281433F900C19F9A /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = Shared;
+		};
+		9F00E4C9281433F900C19F9A /* TcpCommands */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = TcpCommands;
+		};
+		9F00E4CB281433F900C19F9A /* UdpStreams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = UdpStreams;
+		};
+		9F00E4CD281433F900C19F9A /* WanDiscovery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = WanDiscovery;
+		};
+		9F00E4CF281433F900C19F9A /* XCGWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			productName = XCGWrapper;
+		};
+		9F00E4D528143A8E00C19F9A /* SdrViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SdrViewer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9136825827442B5500A315C0 /* Project object */;
 }

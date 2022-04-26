@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 import SdrViewer
 import LogViewer
-import RemoteViewer
+//import RemoteViewer
 import Shared
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -37,22 +37,24 @@ struct Sdr6000App: App {
 
     WindowGroup(getBundleInfo().appName + " v" + Version().string) {
       SdrView()      
-        .frame(minWidth: 900, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
+        .frame(minWidth: 900, maxWidth: .infinity, minHeight: 450, maxHeight: .infinity)
         .padding()
-    }.windowToolbarStyle(.expanded)
+    }
+    .windowToolbarStyle(.expanded)
+    .handlesExternalEvents(matching: Set(arrayLiteral: "SdrViewer"))
     
-//    WindowGroup(getBundleInfo().appName + " (Log Viewer) v" + Version().string) {
-//      LogView(store: Store(
-//        initialState: LogState(),
-//        reducer: logReducer,
-//        environment: LogEnvironment() )
-//      )
-//      .toolbar {
-//        Button("Close") { NSApplication.shared.keyWindow?.close()  }
-//      }
-//      .frame(minWidth: 975, minHeight: 400)
-//      .padding()
-//    }.handlesExternalEvents(matching: Set(arrayLiteral: "LogViewer"))
+    WindowGroup(getBundleInfo().appName + " (Log Viewer) v" + Version().string) {
+      LogView(store: Store(
+        initialState: LogState(),
+        reducer: logReducer,
+        environment: LogEnvironment() )
+      )
+      .toolbar {
+        Button("Close") { NSApplication.shared.keyWindow?.close()  }
+      }
+      .frame(minWidth: 975, minHeight: 400)
+      .padding()
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "LogViewer"))
     
 //    WindowGroup(getBundleInfo().appName + " (Remote Viewer) v" + Version().string) {
 //      RemoteView(store: Store(
@@ -73,7 +75,12 @@ struct Sdr6000App: App {
       //remove the "New" menu item
       CommandGroup(replacing: CommandGroupPlacement.newItem) {}
       ToolbarCommands()
+      SidebarCommands()
     }
+    Settings {
+        SettingsView()
+    }
+
   }
 }
 
