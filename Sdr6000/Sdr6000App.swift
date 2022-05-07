@@ -38,7 +38,7 @@ struct Sdr6000App: App {
     WindowGroup(getBundleInfo().appName + " v" + Version().string) {
       SdrView()      
         .frame(minWidth: 900, maxWidth: .infinity, minHeight: 450, maxHeight: .infinity)
-        .padding()
+        .padding(.vertical)
     }
     .windowToolbarStyle(.expanded)
     .handlesExternalEvents(matching: Set(arrayLiteral: "SdrViewer"))
