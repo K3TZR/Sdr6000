@@ -42,6 +42,23 @@ struct Sdr6000App: App {
     }
     .windowToolbarStyle(.expanded)
     .handlesExternalEvents(matching: Set(arrayLiteral: "SdrViewer"))
+    .commands {
+      CommandGroup(after: .appSettings) {
+       Button(action: {
+         WindowChoice.ProfileViewer.open()
+       }, label: {
+         Text("Profiles")
+       })
+     }
+    }
+
+    
+    WindowGroup("Profiles") {
+      ProfileView()
+      .frame(width: 275, height: 350)
+      .padding()
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "ProfileViewer"))
+
     
     WindowGroup(getBundleInfo().appName + " (Log Viewer) v" + Version().string) {
       LogView(store: Store(
