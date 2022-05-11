@@ -10,7 +10,6 @@ import ComposableArchitecture
 
 import SdrViewer
 import LogViewer
-//import RemoteViewer
 import Shared
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -32,82 +31,63 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 struct Sdr6000App: App {
   @NSApplicationDelegateAdaptor(AppDelegate.self)
   var appDelegate
-
+  
   var body: some Scene {
-
+    
     WindowGroup(getBundleInfo().appName + " v" + Version().string) {
-      SdrView()      
+      SdrView()
         .frame(minWidth: 900, maxWidth: .infinity, minHeight: 450, maxHeight: .infinity)
         .padding(.vertical)
     }
     .windowToolbarStyle(.expanded)
     .handlesExternalEvents(matching: Set(arrayLiteral: "SdrViewer"))
     .commands {
-      CommandGroup(after: .appSettings) {
-       Button(action: {
-         WindowChoice.ProfileViewer.open()
-       }, label: {
-         Text("Profiles")
-       })
-     }
-    }
-
-    
-    WindowGroup("Profiles") {
-      ProfileView()
-      .frame(width: 275, height: 350)
-      .padding()
-    }.handlesExternalEvents(matching: Set(arrayLiteral: "ProfileViewer"))
-
-    
-    WindowGroup(getBundleInfo().appName + " (Log Viewer) v" + Version().string) {
-      LogView(store: Store(
-        initialState: LogState(),
-        reducer: logReducer,
-        environment: LogEnvironment() )
-      )
-      .toolbar {
-        Button("Close") { NSApplication.shared.keyWindow?.close()  }
+      CommandGroup(after: .windowList) {
+        Button(action: { WindowChoice.ProfileView.open() }, label: { Text("Profiles List") })
+        Button(action: { WindowChoice.TxView.open() }, label: { Text("Transmit Settings") })
+        Button(action: { WindowChoice.Ph1View.open() }, label: { Text("Phone 1 Settings") })
+        Button(action: { WindowChoice.Ph2View.open() }, label: { Text("Phone 2 Settings") })
+        Button(action: { WindowChoice.CwView.open() }, label: { Text("Cw Settings") })
+        Button(action: { WindowChoice.EqView.open() }, label: { Text("Equalizer Settings") })
       }
-      .frame(minWidth: 975, minHeight: 400)
-      .padding()
-    }.handlesExternalEvents(matching: Set(arrayLiteral: "LogViewer"))
-    
-//    WindowGroup(getBundleInfo().appName + " (Remote Viewer) v" + Version().string) {
-//      RemoteView(store: Store(
-//        initialState: RemoteState( "Relay Status" ),
-//        reducer: remoteReducer,
-//        environment: RemoteEnvironment() )
-//      )
-//      .toolbar {
-//        Button("Close") { NSApplication.shared.keyWindow?.close()  }
-//      }
-//
-//      .frame(minWidth: 975, minHeight: 400)
-//      .padding()
-//    }.handlesExternalEvents(matching: Set(arrayLiteral: "RemoteViewer"))
-
-    
-    .commands {
       //remove the "New" menu item
       CommandGroup(replacing: CommandGroupPlacement.newItem) {}
       ToolbarCommands()
-      SidebarCommands()
     }
+
+    WindowGroup("Profiles List") {
+      ProfileView()
+        .frame(width: 275, height: 350)
+        .padding()
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "ProfileView"))
+
+    WindowGroup("Transmit Settings") {
+      TxView()
+        .frame(width: 275, height: 230)
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "TxView"))
+    
+    WindowGroup("Phone 1 Settings") {
+      Ph1View()
+        .frame(width: 275, height: 210)
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "Ph1View"))
+    
+    WindowGroup("Phone 2 Settings") {
+      Ph2View()
+        .frame(width: 275, height: 160)
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "Ph2View"))
+    
+    WindowGroup("CW Settings") {
+      CwView()
+        .frame(width: 275, height: 200)
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "CwView"))
+
+    WindowGroup("Equalizer Settings") {
+      EqView()
+        .frame(width: 275, height: 280)
+    }.handlesExternalEvents(matching: Set(arrayLiteral: "EqView"))
+    
     Settings {
-        SettingsView()
-    }
-
-  }
-}
-
-enum OpenWindows: String, CaseIterable {
-  case LogViewer = "LogViewer"
-  case RemoteViewer = "RemoteViewer"
-  
-  func open() {
-    if let url = URL(string: "Sdr6000://\(self.rawValue)") {
-      NSWorkspace.shared.open(url)
+      SettingsView()
     }
   }
 }
