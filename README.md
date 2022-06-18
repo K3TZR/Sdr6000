@@ -4,4 +4,6 @@
 
 ## ***** UNDER CONSTRUCTION *****
 
-Experimental version of xSDR6000 using Components6000
+Experimental version of xSDR6000 using APiComponents, ViewComponents and UtilityComponents
+All views are SwiftUI Views
+Constructed in "The Composable Architecture" style (see https://github.com/pointfreeco/swift-composable-architecture)
