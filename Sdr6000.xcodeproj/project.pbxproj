@@ -10,22 +10,56 @@
 		9136826427442B5500A315C0 /* Sdr6000App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136826327442B5500A315C0 /* Sdr6000App.swift */; };
 		9136826827442B5A00A315C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9136826727442B5A00A315C0 /* Assets.xcassets */; };
 		9136826B27442B5A00A315C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9136826A27442B5A00A315C0 /* Preview Assets.xcassets */; };
-		9F00E4B4281433F900C19F9A /* ApiViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B3281433F900C19F9A /* ApiViewer */; };
-		9F00E4B6281433F900C19F9A /* ClientView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B5281433F900C19F9A /* ClientView */; };
-		9F00E4B8281433F900C19F9A /* LanDiscovery in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B7281433F900C19F9A /* LanDiscovery */; };
-		9F00E4BA281433F900C19F9A /* LoginView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4B9281433F900C19F9A /* LoginView */; };
-		9F00E4BC281433F900C19F9A /* LogViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BB281433F900C19F9A /* LogViewer */; };
-		9F00E4BE281433F900C19F9A /* PickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BD281433F900C19F9A /* PickerView */; };
-		9F00E4C0281433F900C19F9A /* ProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4BF281433F900C19F9A /* ProgressView */; };
-		9F00E4C2281433F900C19F9A /* Radio in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C1281433F900C19F9A /* Radio */; };
-		9F00E4C4281433F900C19F9A /* RemoteViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C3281433F900C19F9A /* RemoteViewer */; };
-		9F00E4C6281433F900C19F9A /* SecureStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C5281433F900C19F9A /* SecureStorage */; };
-		9F00E4C8281433F900C19F9A /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C7281433F900C19F9A /* Shared */; };
-		9F00E4CA281433F900C19F9A /* TcpCommands in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4C9281433F900C19F9A /* TcpCommands */; };
-		9F00E4CC281433F900C19F9A /* UdpStreams in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CB281433F900C19F9A /* UdpStreams */; };
-		9F00E4CE281433F900C19F9A /* WanDiscovery in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CD281433F900C19F9A /* WanDiscovery */; };
-		9F00E4D0281433F900C19F9A /* XCGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4CF281433F900C19F9A /* XCGWrapper */; };
-		9F00E4D628143A8E00C19F9A /* SdrViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 9F00E4D528143A8E00C19F9A /* SdrViewer */; };
+		9F6249F7284AEE3B008DF133 /* ClientView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6249F6284AEE3B008DF133 /* ClientView */; };
+		9F6249F9284AEE3B008DF133 /* LevelIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6249F8284AEE3B008DF133 /* LevelIndicatorView */; };
+		9F6249FB284AEE3B008DF133 /* LogView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6249FA284AEE3B008DF133 /* LogView */; };
+		9F6249FD284AEE3B008DF133 /* LoginView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6249FC284AEE3B008DF133 /* LoginView */; };
+		9F6249FF284AEE3B008DF133 /* PickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F6249FE284AEE3B008DF133 /* PickerView */; };
+		9F624A01284AEE3B008DF133 /* ProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F624A00284AEE3B008DF133 /* ProgressView */; };
+		9F624A03284AEE3B008DF133 /* RemoteView in Frameworks */ = {isa = PBXBuildFile; productRef = 9F624A02284AEE3B008DF133 /* RemoteView */; };
+		9F624A06284AEE58008DF133 /* Api6000 in Frameworks */ = {isa = PBXBuildFile; productRef = 9F624A05284AEE58008DF133 /* Api6000 */; };
+		9F624A08284AEE58008DF133 /* TcpCommands in Frameworks */ = {isa = PBXBuildFile; productRef = 9F624A07284AEE58008DF133 /* TcpCommands */; };
+		9F624A0A284AEE58008DF133 /* UdpStreams in Frameworks */ = {isa = PBXBuildFile; productRef = 9F624A09284AEE58008DF133 /* UdpStreams */; };
+		9F624A0E284AEF69008DF133 /* SdrCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A0D284AEF69008DF133 /* SdrCore.swift */; };
+		9F624A10284AEF70008DF133 /* SdrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A0F284AEF70008DF133 /* SdrView.swift */; };
+		9F624A14284AEF9A008DF133 /* BottomButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A13284AEF9A008DF133 /* BottomButtonsView.swift */; };
+		9F624A16284AEFA8008DF133 /* FlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A15284AEFA8008DF133 /* FlagView.swift */; };
+		9F624A1C284AEFCA008DF133 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A17284AEFCA008DF133 /* ModeView.swift */; };
+		9F624A1D284AEFCA008DF133 /* XritView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A18284AEFCA008DF133 /* XritView.swift */; };
+		9F624A1E284AEFCA008DF133 /* AudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A19284AEFCA008DF133 /* AudView.swift */; };
+		9F624A1F284AEFCA008DF133 /* DspView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A1A284AEFCA008DF133 /* DspView.swift */; };
+		9F624A20284AEFCA008DF133 /* DaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A1B284AEFCA008DF133 /* DaxView.swift */; };
+		9F624A22284AEFD5008DF133 /* LeftSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A21284AEFD5008DF133 /* LeftSideView.swift */; };
+		9F624A27284AEFE0008DF133 /* BandPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A23284AEFE0008DF133 /* BandPopover.swift */; };
+		9F624A28284AEFE0008DF133 /* DisplayPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A24284AEFE0008DF133 /* DisplayPopover.swift */; };
+		9F624A29284AEFE0008DF133 /* AntPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A25284AEFE0008DF133 /* AntPopover.swift */; };
+		9F624A2A284AEFE0008DF133 /* DaxPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A26284AEFE0008DF133 /* DaxPopover.swift */; };
+		9F624A2C284AEFE8008DF133 /* PanadapterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A2B284AEFE8008DF133 /* PanadapterContainerView.swift */; };
+		9F624A2E284AEFF2008DF133 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A2D284AEFF2008DF133 /* ProfileView.swift */; };
+		9F624A35284AEFFF008DF133 /* TxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A2F284AEFFF008DF133 /* TxView.swift */; };
+		9F624A36284AEFFF008DF133 /* Ph1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A30284AEFFF008DF133 /* Ph1View.swift */; };
+		9F624A37284AEFFF008DF133 /* EqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A31284AEFFF008DF133 /* EqView.swift */; };
+		9F624A38284AEFFF008DF133 /* Ph2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A32284AEFFF008DF133 /* Ph2View.swift */; };
+		9F624A39284AEFFF008DF133 /* CwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A33284AEFFF008DF133 /* CwView.swift */; };
+		9F624A3A284AEFFF008DF133 /* RightSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A34284AEFFF008DF133 /* RightSideView.swift */; };
+		9F624A3C284AF019008DF133 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A3B284AF019008DF133 /* SettingsView.swift */; };
+		9F624A47284AF027008DF133 /* XvtrSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A3D284AF026008DF133 /* XvtrSettingsView.swift */; };
+		9F624A48284AF027008DF133 /* PhoneCwSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A3E284AF026008DF133 /* PhoneCwSettingsView.swift */; };
+		9F624A49284AF027008DF133 /* RxSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A3F284AF026008DF133 /* RxSettingsView.swift */; };
+		9F624A4A284AF027008DF133 /* NetworkSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A40284AF026008DF133 /* NetworkSettingsView.swift */; };
+		9F624A4B284AF027008DF133 /* InfoSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A41284AF026008DF133 /* InfoSettingsView.swift */; };
+		9F624A4C284AF027008DF133 /* GpsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A42284AF026008DF133 /* GpsSettingsView.swift */; };
+		9F624A4D284AF027008DF133 /* FiltersSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A43284AF026008DF133 /* FiltersSettingsView.swift */; };
+		9F624A4E284AF027008DF133 /* TxSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A44284AF026008DF133 /* TxSettingsView.swift */; };
+		9F624A4F284AF027008DF133 /* RadioSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A45284AF027008DF133 /* RadioSettingsView.swift */; };
+		9F624A50284AF027008DF133 /* ColorsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A46284AF027008DF133 /* ColorsSettingsView.swift */; };
+		9F624A52284AF035008DF133 /* WaterfallContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A51284AF035008DF133 /* WaterfallContainerView.swift */; };
+		9FE6B66C285CEE43006A18D3 /* SdrEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */; };
+		9FE6B66F285CFE41006A18D3 /* SecureStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B66E285CFE41006A18D3 /* SecureStorage */; };
+		9FE6B671285CFE41006A18D3 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B670285CFE41006A18D3 /* Shared */; };
+		9FE6B673285CFE41006A18D3 /* Vita in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B672285CFE41006A18D3 /* Vita */; };
+		9FE6B675285CFE41006A18D3 /* XCGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B674285CFE41006A18D3 /* XCGWrapper */; };
+		9FE6B677285D00CE006A18D3 /* OtherSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +69,43 @@
 		9136826A27442B5A00A315C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9136826C27442B5A00A315C0 /* Sdr6000.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sdr6000.entitlements; sourceTree = "<group>"; };
 		9176D6EC27907BE70094E3D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		9F00E4D42814397900C19F9A /* Components6000 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Components6000; path = ../Components6000; sourceTree = "<group>"; };
 		9F5F20E127FB385400A0599D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9F624A0D284AEF69008DF133 /* SdrCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdrCore.swift; sourceTree = "<group>"; };
+		9F624A0F284AEF70008DF133 /* SdrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdrView.swift; sourceTree = "<group>"; };
+		9F624A13284AEF9A008DF133 /* BottomButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsView.swift; sourceTree = "<group>"; };
+		9F624A15284AEFA8008DF133 /* FlagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagView.swift; sourceTree = "<group>"; };
+		9F624A17284AEFCA008DF133 /* ModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
+		9F624A18284AEFCA008DF133 /* XritView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XritView.swift; sourceTree = "<group>"; };
+		9F624A19284AEFCA008DF133 /* AudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudView.swift; sourceTree = "<group>"; };
+		9F624A1A284AEFCA008DF133 /* DspView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DspView.swift; sourceTree = "<group>"; };
+		9F624A1B284AEFCA008DF133 /* DaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaxView.swift; sourceTree = "<group>"; };
+		9F624A21284AEFD5008DF133 /* LeftSideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideView.swift; sourceTree = "<group>"; };
+		9F624A23284AEFE0008DF133 /* BandPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandPopover.swift; sourceTree = "<group>"; };
+		9F624A24284AEFE0008DF133 /* DisplayPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayPopover.swift; sourceTree = "<group>"; };
+		9F624A25284AEFE0008DF133 /* AntPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntPopover.swift; sourceTree = "<group>"; };
+		9F624A26284AEFE0008DF133 /* DaxPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaxPopover.swift; sourceTree = "<group>"; };
+		9F624A2B284AEFE8008DF133 /* PanadapterContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanadapterContainerView.swift; sourceTree = "<group>"; };
+		9F624A2D284AEFF2008DF133 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9F624A2F284AEFFF008DF133 /* TxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TxView.swift; sourceTree = "<group>"; };
+		9F624A30284AEFFF008DF133 /* Ph1View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ph1View.swift; sourceTree = "<group>"; };
+		9F624A31284AEFFF008DF133 /* EqView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqView.swift; sourceTree = "<group>"; };
+		9F624A32284AEFFF008DF133 /* Ph2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ph2View.swift; sourceTree = "<group>"; };
+		9F624A33284AEFFF008DF133 /* CwView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwView.swift; sourceTree = "<group>"; };
+		9F624A34284AEFFF008DF133 /* RightSideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSideView.swift; sourceTree = "<group>"; };
+		9F624A3B284AF019008DF133 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9F624A3D284AF026008DF133 /* XvtrSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XvtrSettingsView.swift; sourceTree = "<group>"; };
+		9F624A3E284AF026008DF133 /* PhoneCwSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCwSettingsView.swift; sourceTree = "<group>"; };
+		9F624A3F284AF026008DF133 /* RxSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSettingsView.swift; sourceTree = "<group>"; };
+		9F624A40284AF026008DF133 /* NetworkSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSettingsView.swift; sourceTree = "<group>"; };
+		9F624A41284AF026008DF133 /* InfoSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSettingsView.swift; sourceTree = "<group>"; };
+		9F624A42284AF026008DF133 /* GpsSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsSettingsView.swift; sourceTree = "<group>"; };
+		9F624A43284AF026008DF133 /* FiltersSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersSettingsView.swift; sourceTree = "<group>"; };
+		9F624A44284AF026008DF133 /* TxSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TxSettingsView.swift; sourceTree = "<group>"; };
+		9F624A45284AF027008DF133 /* RadioSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSettingsView.swift; sourceTree = "<group>"; };
+		9F624A46284AF027008DF133 /* ColorsSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsSettingsView.swift; sourceTree = "<group>"; };
+		9F624A51284AF035008DF133 /* WaterfallContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallContainerView.swift; sourceTree = "<group>"; };
+		9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdrEffects.swift; sourceTree = "<group>"; };
+		9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,22 +113,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F00E4B6281433F900C19F9A /* ClientView in Frameworks */,
-				9F00E4C6281433F900C19F9A /* SecureStorage in Frameworks */,
-				9F00E4C0281433F900C19F9A /* ProgressView in Frameworks */,
-				9F00E4BE281433F900C19F9A /* PickerView in Frameworks */,
-				9F00E4D628143A8E00C19F9A /* SdrViewer in Frameworks */,
-				9F00E4BC281433F900C19F9A /* LogViewer in Frameworks */,
-				9F00E4CC281433F900C19F9A /* UdpStreams in Frameworks */,
-				9F00E4C4281433F900C19F9A /* RemoteViewer in Frameworks */,
-				9F00E4C2281433F900C19F9A /* Radio in Frameworks */,
-				9F00E4CE281433F900C19F9A /* WanDiscovery in Frameworks */,
-				9F00E4BA281433F900C19F9A /* LoginView in Frameworks */,
-				9F00E4D0281433F900C19F9A /* XCGWrapper in Frameworks */,
-				9F00E4CA281433F900C19F9A /* TcpCommands in Frameworks */,
-				9F00E4B8281433F900C19F9A /* LanDiscovery in Frameworks */,
-				9F00E4C8281433F900C19F9A /* Shared in Frameworks */,
-				9F00E4B4281433F900C19F9A /* ApiViewer in Frameworks */,
+				9F624A0A284AEE58008DF133 /* UdpStreams in Frameworks */,
+				9FE6B66F285CFE41006A18D3 /* SecureStorage in Frameworks */,
+				9F6249F9284AEE3B008DF133 /* LevelIndicatorView in Frameworks */,
+				9F6249FB284AEE3B008DF133 /* LogView in Frameworks */,
+				9F624A06284AEE58008DF133 /* Api6000 in Frameworks */,
+				9FE6B671285CFE41006A18D3 /* Shared in Frameworks */,
+				9F624A03284AEE3B008DF133 /* RemoteView in Frameworks */,
+				9F624A01284AEE3B008DF133 /* ProgressView in Frameworks */,
+				9F6249FF284AEE3B008DF133 /* PickerView in Frameworks */,
+				9FE6B673285CFE41006A18D3 /* Vita in Frameworks */,
+				9F6249F7284AEE3B008DF133 /* ClientView in Frameworks */,
+				9F624A08284AEE58008DF133 /* TcpCommands in Frameworks */,
+				9F6249FD284AEE3B008DF133 /* LoginView in Frameworks */,
+				9FE6B675285CFE41006A18D3 /* XCGWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +136,6 @@
 		9136825727442B5500A315C0 = {
 			isa = PBXGroup;
 			children = (
-				9F00E4D42814397900C19F9A /* Components6000 */,
 				9176D6EC27907BE70094E3D8 /* README.md */,
 				9136826227442B5500A315C0 /* Sdr6000 */,
 				9136826127442B5500A315C0 /* Products */,
@@ -88,11 +154,20 @@
 		9136826227442B5500A315C0 /* Sdr6000 */ = {
 			isa = PBXGroup;
 			children = (
-				9F5F20E127FB385400A0599D /* Info.plist */,
-				9136826327442B5500A315C0 /* Sdr6000App.swift */,
+				9FA81C2B284C514600EEF923 /* LeftSide */,
 				9136826727442B5A00A315C0 /* Assets.xcassets */,
-				9136826C27442B5A00A315C0 /* Sdr6000.entitlements */,
+				9FA81C2D284C522F00EEF923 /* Preferences */,
+				9FA81C2E284C526100EEF923 /* Flag */,
+				9F5F20E127FB385400A0599D /* Info.plist */,
+				9FA81C2F284C530C00EEF923 /* SubViews */,
 				9136826927442B5A00A315C0 /* Preview Content */,
+				9FA81C30284C535300EEF923 /* MiscViews */,
+				9FA81C2C284C518A00EEF923 /* RightSide */,
+				9136826C27442B5A00A315C0 /* Sdr6000.entitlements */,
+				9136826327442B5500A315C0 /* Sdr6000App.swift */,
+				9F624A0D284AEF69008DF133 /* SdrCore.swift */,
+				9F624A0F284AEF70008DF133 /* SdrView.swift */,
+				9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */,
 			);
 			path = Sdr6000;
 			sourceTree = "<group>";
@@ -112,6 +187,81 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9FA81C2B284C514600EEF923 /* LeftSide */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A21284AEFD5008DF133 /* LeftSideView.swift */,
+				9F624A25284AEFE0008DF133 /* AntPopover.swift */,
+				9F624A23284AEFE0008DF133 /* BandPopover.swift */,
+				9F624A26284AEFE0008DF133 /* DaxPopover.swift */,
+				9F624A24284AEFE0008DF133 /* DisplayPopover.swift */,
+			);
+			path = LeftSide;
+			sourceTree = "<group>";
+		};
+		9FA81C2C284C518A00EEF923 /* RightSide */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A34284AEFFF008DF133 /* RightSideView.swift */,
+				9F624A33284AEFFF008DF133 /* CwView.swift */,
+				9F624A31284AEFFF008DF133 /* EqView.swift */,
+				9F624A30284AEFFF008DF133 /* Ph1View.swift */,
+				9F624A32284AEFFF008DF133 /* Ph2View.swift */,
+				9F624A2F284AEFFF008DF133 /* TxView.swift */,
+			);
+			path = RightSide;
+			sourceTree = "<group>";
+		};
+		9FA81C2D284C522F00EEF923 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A46284AF027008DF133 /* ColorsSettingsView.swift */,
+				9F624A43284AF026008DF133 /* FiltersSettingsView.swift */,
+				9F624A42284AF026008DF133 /* GpsSettingsView.swift */,
+				9F624A41284AF026008DF133 /* InfoSettingsView.swift */,
+				9F624A40284AF026008DF133 /* NetworkSettingsView.swift */,
+				9F624A3E284AF026008DF133 /* PhoneCwSettingsView.swift */,
+				9F624A45284AF027008DF133 /* RadioSettingsView.swift */,
+				9F624A3F284AF026008DF133 /* RxSettingsView.swift */,
+				9F624A3B284AF019008DF133 /* SettingsView.swift */,
+				9F624A44284AF026008DF133 /* TxSettingsView.swift */,
+				9F624A3D284AF026008DF133 /* XvtrSettingsView.swift */,
+				9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		9FA81C2E284C526100EEF923 /* Flag */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A15284AEFA8008DF133 /* FlagView.swift */,
+				9F624A19284AEFCA008DF133 /* AudView.swift */,
+				9F624A1B284AEFCA008DF133 /* DaxView.swift */,
+				9F624A1A284AEFCA008DF133 /* DspView.swift */,
+				9F624A17284AEFCA008DF133 /* ModeView.swift */,
+				9F624A18284AEFCA008DF133 /* XritView.swift */,
+			);
+			path = Flag;
+			sourceTree = "<group>";
+		};
+		9FA81C2F284C530C00EEF923 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A13284AEF9A008DF133 /* BottomButtonsView.swift */,
+				9F624A2B284AEFE8008DF133 /* PanadapterContainerView.swift */,
+				9F624A51284AF035008DF133 /* WaterfallContainerView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		9FA81C30284C535300EEF923 /* MiscViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F624A2D284AEFF2008DF133 /* ProfileView.swift */,
+			);
+			path = MiscViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,22 +279,20 @@
 			);
 			name = Sdr6000;
 			packageProductDependencies = (
-				9F00E4B3281433F900C19F9A /* ApiViewer */,
-				9F00E4B5281433F900C19F9A /* ClientView */,
-				9F00E4B7281433F900C19F9A /* LanDiscovery */,
-				9F00E4B9281433F900C19F9A /* LoginView */,
-				9F00E4BB281433F900C19F9A /* LogViewer */,
-				9F00E4BD281433F900C19F9A /* PickerView */,
-				9F00E4BF281433F900C19F9A /* ProgressView */,
-				9F00E4C1281433F900C19F9A /* Radio */,
-				9F00E4C3281433F900C19F9A /* RemoteViewer */,
-				9F00E4C5281433F900C19F9A /* SecureStorage */,
-				9F00E4C7281433F900C19F9A /* Shared */,
-				9F00E4C9281433F900C19F9A /* TcpCommands */,
-				9F00E4CB281433F900C19F9A /* UdpStreams */,
-				9F00E4CD281433F900C19F9A /* WanDiscovery */,
-				9F00E4CF281433F900C19F9A /* XCGWrapper */,
-				9F00E4D528143A8E00C19F9A /* SdrViewer */,
+				9F6249F6284AEE3B008DF133 /* ClientView */,
+				9F6249F8284AEE3B008DF133 /* LevelIndicatorView */,
+				9F6249FA284AEE3B008DF133 /* LogView */,
+				9F6249FC284AEE3B008DF133 /* LoginView */,
+				9F6249FE284AEE3B008DF133 /* PickerView */,
+				9F624A00284AEE3B008DF133 /* ProgressView */,
+				9F624A02284AEE3B008DF133 /* RemoteView */,
+				9F624A05284AEE58008DF133 /* Api6000 */,
+				9F624A07284AEE58008DF133 /* TcpCommands */,
+				9F624A09284AEE58008DF133 /* UdpStreams */,
+				9FE6B66E285CFE41006A18D3 /* SecureStorage */,
+				9FE6B670285CFE41006A18D3 /* Shared */,
+				9FE6B672285CFE41006A18D3 /* Vita */,
+				9FE6B674285CFE41006A18D3 /* XCGWrapper */,
 			);
 			productName = TestDiscoveryApp;
 			productReference = 9136826027442B5500A315C0 /* Sdr6000.app */;
@@ -175,7 +323,9 @@
 			);
 			mainGroup = 9136825727442B5500A315C0;
 			packageReferences = (
-				91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */,
+				9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */,
+				9F624A04284AEE58008DF133 /* XCRemoteSwiftPackageReference "ApiComponents" */,
+				9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */,
 			);
 			productRefGroup = 9136826127442B5500A315C0 /* Products */;
 			projectDirPath = "";
@@ -203,7 +353,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F624A27284AEFE0008DF133 /* BandPopover.swift in Sources */,
+				9F624A52284AF035008DF133 /* WaterfallContainerView.swift in Sources */,
+				9F624A0E284AEF69008DF133 /* SdrCore.swift in Sources */,
+				9F624A1D284AEFCA008DF133 /* XritView.swift in Sources */,
+				9F624A29284AEFE0008DF133 /* AntPopover.swift in Sources */,
+				9F624A20284AEFCA008DF133 /* DaxView.swift in Sources */,
+				9F624A2A284AEFE0008DF133 /* DaxPopover.swift in Sources */,
+				9F624A47284AF027008DF133 /* XvtrSettingsView.swift in Sources */,
+				9F624A4E284AF027008DF133 /* TxSettingsView.swift in Sources */,
+				9F624A3A284AEFFF008DF133 /* RightSideView.swift in Sources */,
+				9F624A4D284AF027008DF133 /* FiltersSettingsView.swift in Sources */,
+				9F624A35284AEFFF008DF133 /* TxView.swift in Sources */,
+				9F624A50284AF027008DF133 /* ColorsSettingsView.swift in Sources */,
+				9F624A2C284AEFE8008DF133 /* PanadapterContainerView.swift in Sources */,
+				9F624A3C284AF019008DF133 /* SettingsView.swift in Sources */,
+				9F624A16284AEFA8008DF133 /* FlagView.swift in Sources */,
+				9FE6B677285D00CE006A18D3 /* OtherSettingsView.swift in Sources */,
+				9F624A4C284AF027008DF133 /* GpsSettingsView.swift in Sources */,
+				9F624A4B284AF027008DF133 /* InfoSettingsView.swift in Sources */,
+				9F624A4F284AF027008DF133 /* RadioSettingsView.swift in Sources */,
+				9F624A22284AEFD5008DF133 /* LeftSideView.swift in Sources */,
+				9F624A39284AEFFF008DF133 /* CwView.swift in Sources */,
+				9F624A2E284AEFF2008DF133 /* ProfileView.swift in Sources */,
+				9F624A14284AEF9A008DF133 /* BottomButtonsView.swift in Sources */,
+				9F624A37284AEFFF008DF133 /* EqView.swift in Sources */,
 				9136826427442B5500A315C0 /* Sdr6000App.swift in Sources */,
+				9F624A4A284AF027008DF133 /* NetworkSettingsView.swift in Sources */,
+				9F624A38284AEFFF008DF133 /* Ph2View.swift in Sources */,
+				9F624A28284AEFE0008DF133 /* DisplayPopover.swift in Sources */,
+				9FE6B66C285CEE43006A18D3 /* SdrEffects.swift in Sources */,
+				9F624A36284AEFFF008DF133 /* Ph1View.swift in Sources */,
+				9F624A1F284AEFCA008DF133 /* DspView.swift in Sources */,
+				9F624A49284AF027008DF133 /* RxSettingsView.swift in Sources */,
+				9F624A48284AF027008DF133 /* PhoneCwSettingsView.swift in Sources */,
+				9F624A1E284AEFCA008DF133 /* AudView.swift in Sources */,
+				9F624A10284AEF70008DF133 /* SdrView.swift in Sources */,
+				9F624A1C284AEFCA008DF133 /* ModeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +522,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sdr6000/Preview Content\"";
 				DEVELOPMENT_TEAM = EE5B8TYXGA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -350,7 +536,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,7 +554,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sdr6000/Preview Content\"";
 				DEVELOPMENT_TEAM = EE5B8TYXGA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -382,7 +568,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,9 +601,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */ = {
+		9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/K3TZR/Components6000.git";
+			repositoryURL = "https://github.com/K3TZR/ViewComponents.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9F624A04284AEE58008DF133 /* XCRemoteSwiftPackageReference "ApiComponents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/K3TZR/ApiComponents.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/K3TZR/UtilityComponents.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -426,84 +628,75 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9F00E4B3281433F900C19F9A /* ApiViewer */ = {
+		9F6249F6284AEE3B008DF133 /* ClientView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = ApiViewer;
-		};
-		9F00E4B5281433F900C19F9A /* ClientView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
 			productName = ClientView;
 		};
-		9F00E4B7281433F900C19F9A /* LanDiscovery */ = {
+		9F6249F8284AEE3B008DF133 /* LevelIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = LanDiscovery;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
+			productName = LevelIndicatorView;
 		};
-		9F00E4B9281433F900C19F9A /* LoginView */ = {
+		9F6249FA284AEE3B008DF133 /* LogView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
+			productName = LogView;
+		};
+		9F6249FC284AEE3B008DF133 /* LoginView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
 			productName = LoginView;
 		};
-		9F00E4BB281433F900C19F9A /* LogViewer */ = {
+		9F6249FE284AEE3B008DF133 /* PickerView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = LogViewer;
-		};
-		9F00E4BD281433F900C19F9A /* PickerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
 			productName = PickerView;
 		};
-		9F00E4BF281433F900C19F9A /* ProgressView */ = {
+		9F624A00284AEE3B008DF133 /* ProgressView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
 			productName = ProgressView;
 		};
-		9F00E4C1281433F900C19F9A /* Radio */ = {
+		9F624A02284AEE3B008DF133 /* RemoteView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = Radio;
+			package = 9F6249F5284AEE3B008DF133 /* XCRemoteSwiftPackageReference "ViewComponents" */;
+			productName = RemoteView;
 		};
-		9F00E4C3281433F900C19F9A /* RemoteViewer */ = {
+		9F624A05284AEE58008DF133 /* Api6000 */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = RemoteViewer;
+			package = 9F624A04284AEE58008DF133 /* XCRemoteSwiftPackageReference "ApiComponents" */;
+			productName = Api6000;
 		};
-		9F00E4C5281433F900C19F9A /* SecureStorage */ = {
+		9F624A07284AEE58008DF133 /* TcpCommands */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = SecureStorage;
-		};
-		9F00E4C7281433F900C19F9A /* Shared */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = Shared;
-		};
-		9F00E4C9281433F900C19F9A /* TcpCommands */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F624A04284AEE58008DF133 /* XCRemoteSwiftPackageReference "ApiComponents" */;
 			productName = TcpCommands;
 		};
-		9F00E4CB281433F900C19F9A /* UdpStreams */ = {
+		9F624A09284AEE58008DF133 /* UdpStreams */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9F624A04284AEE58008DF133 /* XCRemoteSwiftPackageReference "ApiComponents" */;
 			productName = UdpStreams;
 		};
-		9F00E4CD281433F900C19F9A /* WanDiscovery */ = {
+		9FE6B66E285CFE41006A18D3 /* SecureStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
-			productName = WanDiscovery;
+			package = 9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */;
+			productName = SecureStorage;
 		};
-		9F00E4CF281433F900C19F9A /* XCGWrapper */ = {
+		9FE6B670285CFE41006A18D3 /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A72E0427794CAD0075A020 /* XCRemoteSwiftPackageReference "Components6000" */;
+			package = 9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */;
+			productName = Shared;
+		};
+		9FE6B672285CFE41006A18D3 /* Vita */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */;
+			productName = Vita;
+		};
+		9FE6B674285CFE41006A18D3 /* XCGWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9FE6B66D285CFE41006A18D3 /* XCRemoteSwiftPackageReference "UtilityComponents" */;
 			productName = XCGWrapper;
-		};
-		9F00E4D528143A8E00C19F9A /* SdrViewer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SdrViewer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
