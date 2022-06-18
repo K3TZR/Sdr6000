@@ -84,8 +84,8 @@ public struct SdrView: View {
         }
         
         ToolbarItemGroup(placement: .principal) {
-          Button("Connect") { viewStore.send(.connectButton) }
-            .keyboardShortcut(.defaultAction)
+          Button(viewStore.radio == nil ? "Connect" : "Disconnect") { viewStore.send(.connectButton) }
+            .keyboardShortcut(viewStore.radio == nil ? .defaultAction : .cancelAction)
           
           Button("Pan") {}
           Button("Tnf") {}

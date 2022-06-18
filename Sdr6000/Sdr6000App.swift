@@ -34,6 +34,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     // disable tab view
     NSWindow.allowsAutomaticWindowTabbing = false
   }
+  
+  func applicationWillTerminate(_ notification: Notification) {
+    NotificationCenter.default.post(name: logEntryNotification, object: LogEntry("Sdr6000: application terminated", .debug, #function, #file, #line))
+  }
+
   func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
     true
   }
