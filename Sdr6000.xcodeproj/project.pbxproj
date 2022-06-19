@@ -60,6 +60,7 @@
 		9FE6B673285CFE41006A18D3 /* Vita in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B672285CFE41006A18D3 /* Vita */; };
 		9FE6B675285CFE41006A18D3 /* XCGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B674285CFE41006A18D3 /* XCGWrapper */; };
 		9FE6B677285D00CE006A18D3 /* OtherSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */; };
+		9FE6B679285F550F006A18D3 /* RightSideCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6B678285F550F006A18D3 /* RightSideCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		9F624A51284AF035008DF133 /* WaterfallContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallContainerView.swift; sourceTree = "<group>"; };
 		9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdrEffects.swift; sourceTree = "<group>"; };
 		9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsView.swift; sourceTree = "<group>"; };
+		9FE6B678285F550F006A18D3 /* RightSideCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		9FA81C2C284C518A00EEF923 /* RightSide */ = {
 			isa = PBXGroup;
 			children = (
+				9FE6B678285F550F006A18D3 /* RightSideCore.swift */,
 				9F624A34284AEFFF008DF133 /* RightSideView.swift */,
 				9F624A33284AEFFF008DF133 /* CwView.swift */,
 				9F624A31284AEFFF008DF133 /* EqView.swift */,
@@ -355,6 +358,7 @@
 			files = (
 				9F624A27284AEFE0008DF133 /* BandPopover.swift in Sources */,
 				9F624A52284AF035008DF133 /* WaterfallContainerView.swift in Sources */,
+				9FE6B679285F550F006A18D3 /* RightSideCore.swift in Sources */,
 				9F624A0E284AEF69008DF133 /* SdrCore.swift in Sources */,
 				9F624A1D284AEFCA008DF133 /* XritView.swift in Sources */,
 				9F624A29284AEFE0008DF133 /* AntPopover.swift in Sources */,
@@ -522,7 +526,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sdr6000/Preview Content\"";
 				DEVELOPMENT_TEAM = EE5B8TYXGA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -554,7 +558,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sdr6000/Preview Content\"";
 				DEVELOPMENT_TEAM = EE5B8TYXGA;
 				ENABLE_HARDENED_RUNTIME = YES;

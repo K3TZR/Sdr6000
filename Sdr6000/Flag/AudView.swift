@@ -59,7 +59,8 @@ struct AudView: View {
         Text(String(format: "%2.0f",agcThreshold)).frame(width: 30)
       }.font(.system(size: 12))
     }
-    .frame(height: 110)
+    .frame(width: 275, height: 110)
+    .padding(.horizontal)
   }
 }
 
@@ -69,7 +70,6 @@ struct AudView: View {
 struct AudView_Previews: PreviewProvider {
     static var previews: some View {
       AudView()
-        .frame(width: 275)
-//        .padding(.horizontal)
+//        .frame(width: 275)
     }
 }

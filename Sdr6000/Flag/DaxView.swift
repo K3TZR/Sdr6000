@@ -33,7 +33,7 @@ struct DaxView: View {
         }
       }.frame(width: 200)
     }
-    .frame(height: 110)
+    .frame(width: 275, height: 110)
   }
 }
 
@@ -43,7 +43,5 @@ struct DaxView: View {
 struct DaxView_Previews: PreviewProvider {
   static var previews: some View {
     DaxView()
-      .frame(width: 275)
-      .padding(.horizontal)
   }
 }

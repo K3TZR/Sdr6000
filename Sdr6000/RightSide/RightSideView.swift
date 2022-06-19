@@ -6,50 +6,48 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 // ----------------------------------------------------------------------------
 // MARK: - View
 
 struct RightSideView: View {
-  let choices = ["Rx", "Tx", "P/Cw", "Phne", "Eq"]
+  let store: Store<RightSideState, RightSideAction>
   
-  @State var showRx: Bool
-  @State var showTx: Bool
-  @State var showPh1: Bool
-  @State var showPh2: Bool
-  @State var showCw: Bool
-  @State var showEq: Bool
-  
-  @State var isCwMode = true
-  
-  let width: CGFloat = 275
-  let height: CGFloat = 240
+  public init(store: Store<RightSideState, RightSideAction>) {
+    self.store = store
+  }
   
   var body: some View {
-    VStack(alignment: .center) {
+    WithViewStore(self.store) { viewStore in
       
-      HStack {
-        Group {
-          Toggle("Rx", isOn: $showRx)
-          Toggle("Tx", isOn: $showTx)
-          Toggle("Ph1", isOn: $showPh1)
-          Toggle("Ph2", isOn: $showPh2)
-          Toggle("Cw", isOn: $showCw)
-          Toggle("Eq", isOn: $showEq)
+      VStack(alignment: .center) {
+        HStack {
+          Group {
+            Toggle("Rx", isOn: viewStore.binding(get: \.rxIsOn, send: .toggle(\.rxIsOn)))
+            Toggle("Tx", isOn: viewStore.binding(get: \.txIsOn, send: .toggle(\.txIsOn)))
+            Toggle("Ph1", isOn: viewStore.binding(get: \.ph1IsOn, send: .toggle(\.ph1IsOn)))
+            Toggle("Ph2", isOn: viewStore.binding(get: \.ph2IsOn, send: .toggle(\.ph2IsOn)))
+            Toggle("Cw", isOn: viewStore.binding(get: \.cwIsOn, send: .toggle(\.cwIsOn)))
+            Toggle("Eq", isOn: viewStore.binding(get: \.eqIsOn, send: .toggle(\.eqIsOn)))
+          }
+          .toggleStyle(.button)
         }
-        .toggleStyle(.button)
-      }
-      Divider()
-      ScrollView([.vertical]) {
-        if showRx { FlagView(flagState: .none) }
-        if showTx { TxView() }
-        if showPh1 { Ph1View() }
-        if showPh2 { Ph2View() }
-        if showCw { CwView() }
-        if showEq { EqView() }
+        Divider()
+        ScrollView {
+          VStack {
+            if viewStore.rxIsOn { FlagView(store: store) }
+            if viewStore.txIsOn { TxView() }
+            if viewStore.ph1IsOn { Ph1View() }
+            if viewStore.ph2IsOn { Ph2View() }
+            if viewStore.cwIsOn { CwView() }
+            if viewStore.eqIsOn { EqView() }
+          }
+        }
       }
     }
-    //        .padding()
+    .frame(width: 275)
+    .padding(.horizontal)
   }
 }
 
@@ -58,12 +56,12 @@ struct RightSideView: View {
 
 struct SideView_Previews: PreviewProvider {
   static var previews: some View {
-    RightSideView(showRx: true,
-                  showTx: false,
-                  showPh1: false,
-                  showPh2: false,
-                  showCw: false,
-                  showEq: false)
-      .frame(width: 260)
+    RightSideView(
+      store: Store(
+        initialState: RightSideState(),
+        reducer: rightSideReducer,
+        environment: RightSideEnvironment()
+      )
+    )
   }
 }

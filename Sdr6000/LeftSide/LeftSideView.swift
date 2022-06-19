@@ -45,10 +45,6 @@ struct LeftSideView: View {
         Button("-") {}
       }
     }
-    
-    //    .popover(item: $popoverParams, attachmentAnchor: popoverParams!.anchor, arrowEdge: .trailing) { _ in AntPopover() }
-    
-    
   }
 }
 
@@ -57,77 +53,3 @@ struct LeftSideView_Previews: PreviewProvider {
     LeftSideView()
   }
 }
-
-//struct AntPopover: View {
-//  
-//  @State var rxAntennas = ["Ant1", "Ant2", ]
-//  @State var selectedRxAntenna = "Ant1"
-//  @State var rfGain: CGFloat = 25.0
-//  
-//  var body: some View {
-//    VStack(alignment: .leading, spacing: 20) {
-//      HStack {
-//        Text("RX Ant")
-//        Picker("", selection: $selectedRxAntenna) {
-//          ForEach(rxAntennas, id: \.self) {
-//            Text($0)
-//          }
-//        }
-//        .pickerStyle(.menu)
-//        .frame(width: 100)
-//      }
-//      Button("Loop A") {}
-//      HStack(spacing: 10) {
-//        Text("RF Gain")
-//        Slider(value: $rfGain, in: 0...100).frame(width: 100)
-//        Text("\(String(format: "%.0f", rfGain))").frame(width: 50)
-//      }
-//    }
-//    .padding()
-//    .frame(width: 250, height: 150)
-//  }
-//}
-
-//struct DaxPopover: View {
-//  
-//  @State var daxIqChannel = ""
-//  
-//  var body: some View {
-//    HStack {
-//      Text("Dax IQ Channel")
-//      TextField("", text: $daxIqChannel)
-//    }
-//    .padding()
-//    .frame(width: 250, height: 75)
-//  }
-//}
-
-
-//struct BandPopover: View {
-//  
-//  @State var band = "40"
-//  @State var bands =
-//  [
-//    "160", "80", "60", "40", "30",
-//    "20", "17", "15", "12", "10",
-//    "6", "4", "", "WWV", "GEN",
-//    "2200", "6300", "XVTR"
-//  ]
-//  
-//  var body: some View {
-//    
-//    let columns = [
-//      GridItem(.fixed(40)),
-//      GridItem(.fixed(40)),
-//      GridItem(.fixed(40))
-//    ]
-//    LazyVGrid(columns: columns, spacing: 10) {
-//      ForEach(bands, id: \.self) { band in
-//        Button( action: {  })
-//        { Text(band).frame(width: 40) }
-//      }
-//    }
-//    .padding(10)
-//    .frame(width: 170, height: 180)
-//  }
-//}

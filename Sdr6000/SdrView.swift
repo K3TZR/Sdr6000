@@ -37,7 +37,7 @@ public struct SdrView: View {
         HStack(spacing: 0) {
           if leftSideView {
             LeftSideView()
-              .frame(minWidth: leftWidth, maxWidth: leftWidth)
+              .frame(width: leftWidth)
             Divider()
           }
           VSplitView {
@@ -46,13 +46,15 @@ public struct SdrView: View {
           }.frame(minWidth: totalWidthMin - leftWidth - rightWidth,  maxWidth: .infinity, minHeight: 430)
           if rightSideView {
             Divider()
-            RightSideView(showRx: false,
-                          showTx: false,
-                          showPh1: false,
-                          showPh2: false,
-                          showCw: false,
-                          showEq: false)
-            .frame(minWidth: rightWidth, maxWidth: rightWidth)
+            RightSideView(
+              store:
+                Store(
+                  initialState: RightSideState(),
+                  reducer: rightSideReducer,
+                  environment: RightSideEnvironment()
+                )
+            )
+//            .frame(width: rightWidth)
           }
         }
         BottomButtonsView()

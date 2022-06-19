@@ -55,8 +55,8 @@ struct XritView: View {
         }
       }.multilineTextAlignment(.trailing)
     }
-    .frame(height: 110)
-
+    .frame(width: 275, height: 110)
+    .padding(.horizontal)
   }
 }
 
@@ -66,7 +66,5 @@ struct XritView: View {
 struct XritView_Previews: PreviewProvider {
     static var previews: some View {
       XritView()
-        .frame(width: 275)
-        .padding(.horizontal)
     }
 }

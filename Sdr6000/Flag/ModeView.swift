@@ -29,7 +29,7 @@ struct ModeView: View {
   
   var body: some View {
     
-    let buttonWidth: CGFloat = 27
+    let buttonWidth: CGFloat = 50
     
     VStack {
       HStack{
@@ -37,27 +37,35 @@ struct ModeView: View {
           ForEach(mode, id: \.self) {
             Text($0)
           }
-        }.frame(width: 75).padding(.trailing, 20)
-        Button(action: {}) {Text("USB").frame(width: buttonWidth)}
-        Button(action: {}) {Text("LSB").frame(width: buttonWidth)}
-        Button(action: {}) {Text("CW").frame(width: buttonWidth)}
+        }
+        .labelsHidden()
+        Button(action: {}) {Text("USB")}
+        Button(action: {}) {Text("LSB")}
+        Button(action: {}) {Text("CW")}
       }
       HStack {
-        Button(action: {}) {Text("1.0k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("1.2k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("1.4k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("1.6k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("1.8k").frame(width: buttonWidth)}
+        Group {
+          Button(action: {}) {Text("1.0k")}
+          Button(action: {}) {Text("1.2k")}
+          Button(action: {}) {Text("1.4k")}
+          Button(action: {}) {Text("1.6k")}
+          Button(action: {}) {Text("1.8k")}
+        }
+        .frame(width: buttonWidth)
       }
       HStack {
-        Button(action: {}) {Text("2.0k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("2.2k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("2.4k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("2.6k").frame(width: buttonWidth)}
-        Button(action: {}) {Text("2.8k").frame(width: buttonWidth)}
+        Group {
+          Button(action: {}) {Text("2.0k")}
+          Button(action: {}) {Text("2.2k")}
+          Button(action: {}) {Text("2.4k")}
+          Button(action: {}) {Text("2.6k")}
+          Button(action: {}) {Text("2.8k")}
+        }
+        .frame(width: buttonWidth)
       }
     }
-    .frame(height: 110)
+    .frame(width: 275, height: 110)
+    .padding(.horizontal)
   }
 }
 
@@ -67,7 +75,5 @@ struct ModeView: View {
 struct ModeView_Previews: PreviewProvider {
     static var previews: some View {
       ModeView()
-        .frame(width: 275)
-        .padding(.horizontal)
     }
 }

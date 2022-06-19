@@ -7,31 +7,29 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 import LevelIndicatorView
 
-public enum FlagState {
-  case aud
-  case dsp
-  case mode
-  case xrit
-  case dax
-  case none
-}
+//public enum FlagState {
+//  case aud
+//  case dsp
+//  case mode
+//  case xrit
+//  case dax
+//  case none
+//}
 
 // ----------------------------------------------------------------------------
 // MARK: - Views
 
 struct FlagView: View {
-  @State var flagState: FlagState
-
-  public init
-  (
-    flagState: FlagState
-  )
-  {
-    self.flagState = flagState
+  let store: Store<RightSideState, RightSideAction>
+  
+  public init(store: Store<RightSideState, RightSideAction>) {
+    self.store = store
   }
+  
   @State var rxAntennas = ["Ant1", "Ant2", ]
   @State var selectedRxAntenna = "Ant1"
   @State var txAntennas = ["Ant1", "Ant2", ]
@@ -46,99 +44,122 @@ struct FlagView: View {
   @State var qsk = true
   
   @State var sMeterValue: CGFloat = 10.0
-
+  
   var body: some View {
-    VStack(alignment: .leading, spacing: 2) {
-      HStack(spacing: 3) {
-        Image(systemName: "x.circle").frame(width: 25, height: 25)
-        Picker("", selection: $selectedRxAntenna) {
-          ForEach(rxAntennas, id: \.self) {
-            Text($0).font(.system(size: 8))
-          }
-        }
-        .labelsHidden()
-        .pickerStyle(.menu)
-        
-        Picker("", selection: $selectedTxAntenna) {
-          ForEach(txAntennas, id: \.self) {
-            Text($0).font(.system(size: 8))
-          }
-        }
-        .labelsHidden()
-        
-        Text(filterWidth)
-        Text("SPLIT").font(.title2)
-        Text("TX").font(.title2)
-        Text(sliceLetter).font(.title2)
-      }
-      .padding(.top, 10)
+    WithViewStore(self.store) { viewStore in
       
-      HStack(spacing: 3) {
-        Image(systemName: "lock").frame(width: 25, height: 25)
-
-        Group {
-          Toggle("NB", isOn: $nb)
-          Toggle("NR", isOn: $nr)
-          Toggle("ANF", isOn: $anf)
-          Toggle("QSK", isOn: $qsk)
+      if viewStore.flagMinimized {
+        // Small size Flag
+        VStack(spacing: 2) {
+          HStack(spacing: 3) {
+          Text("SPLIT").font(.title2)
+          Text("TX").font(.title2)
+          Text(sliceLetter).font(.title2)
+            .onTapGesture { viewStore.send(.sliceLetterClicked) }
+          }
+          TextField(
+            "Frequency",
+            value: $frequency,
+            formatter: NumberFormatter()
+          )
+          .font(.title2)
+          .multilineTextAlignment(.trailing)
         }
-        .font(.system(size: 8))
-        .toggleStyle(.button)
+        .frame(width: 100)
 
-        TextField(
-          "Frequency",
-          value: $frequency,
-          formatter: NumberFormatter()
-        )
-        .font(.title2)
-        .multilineTextAlignment(.trailing)
+      } else {
+        // Full size Flag
+        VStack(spacing: 2) {
+          HStack(spacing: 3) {
+            Image(systemName: "x.circle").frame(width: 25, height: 25)
+            Picker("", selection: $selectedRxAntenna) {
+              ForEach(rxAntennas, id: \.self) {
+                Text($0).font(.system(size: 10))
+              }
+            }
+            .labelsHidden()
+            .pickerStyle(.menu)
+            
+            Picker("", selection: $selectedTxAntenna) {
+              ForEach(txAntennas, id: \.self) {
+                Text($0).font(.system(size: 10))
+              }
+            }
+            .labelsHidden()
+            
+            Text(filterWidth)
+            Text("SPLIT").font(.title2)
+            Text("TX").font(.title2)
+            Text(sliceLetter).font(.title2)
+              .onTapGesture { viewStore.send(.sliceLetterClicked) }
+          }
+          .padding(.top, 10)
+          
+          HStack(spacing: 3) {
+            Image(systemName: "lock").frame(width: 25, height: 25)
+            
+            Group {
+              Toggle("NB", isOn: $nb)
+              Toggle("NR", isOn: $nr)
+              Toggle("ANF", isOn: $anf)
+              Toggle("QSK", isOn: $qsk)
+            }
+            .font(.system(size: 10))
+            .toggleStyle(.button)
+            
+            TextField(
+              "Frequency",
+              value: $frequency,
+              formatter: NumberFormatter()
+            )
+            .font(.title2)
+            .multilineTextAlignment(.trailing)
+          }
+          LevelIndicatorView(level: sMeterValue, type: .sMeter)
+          FlagButtonsView(store: store)
+        }
+        .frame(width: 275)
+        .padding(.horizontal)
       }
-      LevelIndicatorView(level: sMeterValue, type: .sMeter)
-      FlagButtonsView(flagState: flagState)
     }
   }
 }
 
 public struct FlagButtonsView: View {
-  @State private var flagState: FlagState
-
-  public init
-  (
-    flagState: FlagState
-  )
-  {
-    self.flagState = flagState
+  let store: Store<RightSideState, RightSideAction>
+  
+  public init(store: Store<RightSideState, RightSideAction>) {
+    self.store = store
   }
   
-  func update(_ currentState: FlagState, _ button: FlagState) -> FlagState {
-    if currentState == .none {
-      return button
-    } else if currentState == button {
-      return .none
-    } else {
-      return button
-    }
-  }
-
+  let choices = ["AUD", "DSP", "MODE", "XRIT", "DAX"]
+  
   public var body: some View {
-    VStack(alignment: .center) {
-      HStack {
-        Button(action: { flagState = update(flagState, .aud) }) { Text("AUD") }.background(Color(flagState == .aud ? .controlAccentColor : .controlBackgroundColor))
-        Button(action: { flagState = update(flagState, .dsp) }) { Text("DSP") }.background(Color(flagState == .dsp ? .controlAccentColor : .controlBackgroundColor))
-        Button(action: { flagState = update(flagState, .mode) }) { Text("MODE") }.background(Color(flagState == .mode ? .controlAccentColor : .controlBackgroundColor))
-        Button(action: { flagState = update(flagState, .xrit) }) { Text("XRIT") }.background(Color(flagState == .xrit ? .controlAccentColor : .controlBackgroundColor))
-        Button(action: { flagState = update(flagState, .dax) }) { Text("DAX") }.background(Color(flagState == .dax ? .controlAccentColor : .controlBackgroundColor))
+    WithViewStore(self.store) { viewStore in
+      
+      VStack(alignment: .center) {
+        
+        Picker("", selection: viewStore.binding(get: \.flagSubView, send: { .flagStateChanged($0) } )) {
+          ForEach(choices, id: \.self) {
+            Text($0)
+          }
+        }
+        .labelsHidden()
+        .pickerStyle(.segmented)
+        
+        switch viewStore.flagSubView {
+        case "AUD":    AudView()
+        case "DSP":    DspView()
+        case "MODE":   ModeView()
+        case "XRIT":   XritView()
+        case "DAX":    DaxView()
+        case "NONE":   EmptyView()
+        default:       EmptyView()
+        }
       }
- 
-     switch flagState {
-      case .aud:    AudView()
-      case .dsp:    DspView()
-      case .mode:   ModeView()
-      case .xrit:   XritView()
-      case .dax:    DaxView()
-      case .none:   EmptyView()
-     }
     }
+    .frame(width: 275)
+    .padding(.horizontal)
   }
 }
 
@@ -147,43 +168,35 @@ public struct FlagButtonsView: View {
 
 struct FlagButtonsView_Previews: PreviewProvider {
   static var previews: some View {
-    FlagButtonsView(flagState: .none)
-      .frame(width: 275, height: 30)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Buttons -----")
+    FlagButtonsView(
+      store: Store(
+        initialState: RightSideState(),
+        reducer: rightSideReducer,
+        environment: RightSideEnvironment()
+      )
+    )
+    .previewDisplayName("----- Buttons -----")
   }
 }
 
 struct FlagView_Previews: PreviewProvider {
   static var previews: some View {
-    FlagView(flagState: .none)
-      .frame(width: 275)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Flag -----")
+    FlagView(
+      store: Store(
+        initialState: RightSideState(),
+        reducer: rightSideReducer,
+        environment: RightSideEnvironment()
+      )
+    )
+    .previewDisplayName("----- Flag -----")
 
-    FlagView(flagState: .aud)
-      .frame(width: 275)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Flag + AUD -----")
-
-  FlagView(flagState: .dsp)
-    .frame(width: 275)
-    .padding(.horizontal, 10)
-    .previewDisplayName("----- Flag + DSP -----")
-
-    FlagView(flagState: .mode)
-      .frame(width: 275)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Flag + MODE -----")
-
-    FlagView(flagState: .xrit)
-      .frame(width: 275)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Flag + XRIT -----")
-
-    FlagView(flagState: .dax)
-      .frame(width: 275)
-      .padding(.horizontal, 10)
-      .previewDisplayName("----- Flag + DAX -----")
+    FlagView(
+      store: Store(
+        initialState: RightSideState(flagMinimized: true),
+        reducer: rightSideReducer,
+        environment: RightSideEnvironment()
+      )
+    )
+    .previewDisplayName("----- Flag Minized -----")
   }
 }

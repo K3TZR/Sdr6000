@@ -45,7 +45,8 @@ struct DspView: View {
         Text(String(format: "%2.0f",level4)).frame(width: 30)
       }
     }
-    .frame(height: 110)
+    .frame(width: 275, height: 110)
+    .padding(.horizontal)
   }
 }
 
@@ -55,7 +56,5 @@ struct DspView: View {
 struct DspView_Previews: PreviewProvider {
     static var previews: some View {
       DspView()
-        .frame(width: 275)
-        .padding(.horizontal)
     }
 }
