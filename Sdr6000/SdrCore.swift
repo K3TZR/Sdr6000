@@ -18,8 +18,6 @@ import PickerView
 import RemoteView
 import Shared
 import SecureStorage
-import TcpCommands
-import UdpStreams
 import XCGWrapper
 
 // ----------------------------------------------------------------------------
@@ -73,7 +71,7 @@ public struct SdrState: Equatable {
   public var connectionMode: ConnectionMode { didSet { UserDefaults.standard.set(connectionMode.rawValue, forKey: "connectionMode") } }
   public var guiDefault: DefaultValue? { didSet { setDefaultValue(guiDefault) } }
   public var smartlinkEmail: String { didSet { UserDefaults.standard.set(smartlinkEmail, forKey: "smartlinkEmail") } }
-  public var useDefault: Bool { didSet { setDefaultValue(guiDefault) } }
+//  public var useDefault: Bool
   
   // normal state
   public var alert: AlertState<SdrAction>?
@@ -81,25 +79,26 @@ public struct SdrState: Equatable {
   public var forceUpdate = false
   public var forceWanLogin = false
   public var initialized = false
+  public var isConnected = false
+  public var leftSideView = false
   public var lanListener: LanListener?
   public var loginState: LoginState? = nil
-  public var model = Model.shared
+  public var model: Model { Model.shared }
   public var pendingWanId: UUID?
   public var pickerState: PickerState? = nil
-  public var radio: Radio?
+  public var rightSideView = false
+  public var rightSideState: RightSideState?
   public var tcp = Tcp()
   public var wanListener: WanListener?
   
   public init(
     connectionMode: ConnectionMode = ConnectionMode(rawValue: UserDefaults.standard.string(forKey: "connectionMode") ?? "local") ?? .local,
     guiDefault: DefaultValue? = getDefaultValue(),
-    smartlinkEmail: String = UserDefaults.standard.string(forKey: "smartlinkEmail") ?? "",
-    useDefault: Bool = UserDefaults.standard.bool(forKey: "useDefault")
+    smartlinkEmail: String = UserDefaults.standard.string(forKey: "smartlinkEmail") ?? ""
   ) {
     self.connectionMode = connectionMode
     self.guiDefault = guiDefault
     self.smartlinkEmail = smartlinkEmail
-    self.useDefault = useDefault
   }
 }
 
@@ -115,16 +114,19 @@ public enum SdrAction: Equatable {
   case clientAction(ClientAction)
   case loginAction(LoginAction)
   case pickerAction(PickerAction)
-  
+  case rightSideAction(RightSideAction)
+
   // Effects related
   case cancelEffects
   case checkConnectionStatus(UUID)
   case clientChangeReceived(ClientUpdate)
   case finishInitialization
+  case leftSideViewClicked
   case logAlertReceived(LogEntry)
   case meterReceived(Meter)
   case openSelection(UUID, Handle?)
   case packetChangeReceived(PacketUpdate)
+  case sidebarRightClicked
   case testResult(SmartlinkTestResult)
   case tcpMessage(TcpMessage)
   case wanStatus(WanStatus)
@@ -135,6 +137,13 @@ public struct SdrEnvironment {
 }
 
 public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
+  rightSideReducer
+    .optional()
+    .pullback(
+      state: \SdrState.rightSideState,
+      action: /SdrAction.rightSideAction,
+      environment: { _ in RightSideEnvironment() }
+    ),
   clientReducer
     .optional()
     .pullback(
@@ -212,9 +221,9 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
       
     case .connectButton:
       // current state?
-      if state.radio == nil {
+      if state.model.radio == nil {
         // NOT connected, check for a default
-        if state.useDefault, let packetId = hasDefault(state) {
+        if UserDefaults.standard.bool(forKey: "useDefault"), let packetId = hasDefault(state) {
           // YES, is it Wan?
           if state.model.packets[id: packetId]?.source == .smartlink {
             // YES, reply will generate a wanStatus action
@@ -239,8 +248,9 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
         
       } else {
         // CONNECTED, disconnect
-        state.radio?.disconnect()
-        state.radio = nil
+        state.model.radio?.disconnect()
+        state.model.radio = nil
+        state.isConnected = false
         return .none
       }
       
@@ -306,18 +316,18 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
       // open the selected packet, optionally disconnect another station
       if let packet = state.model.packets[id: packetId] {
         // instantiate a Radio object
-        state.radio = Radio(packet,
-                            connectionType: .gui,
-                            command: state.tcp,
-                            stream: Udp(),
-                            stationName: "Mac",
-                            programName: "Api6000Tester",
-                            disconnectHandle: disconnectHandle,
-                            testerModeEnabled: true)
+        state.model.radio = Radio(packet,
+                                  connectionType: .gui,
+                                  stationName: "Mac",
+                                  programName: "Api6000Tester",
+                                  disconnectHandle: disconnectHandle,
+                                  testerModeEnabled: true)
         // try to connect
-        if !state.radio!.connect(packet) {
+        if state.model.radio!.connect(packet) {
+          state.isConnected = true
+        } else {
           // failed
-          state.radio = nil
+          state.model.radio = nil
           state.alert = AlertState(title: TextState("Failed to connect to Radio \(packet.nickname)"))
         }
       }
@@ -447,6 +457,23 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
       
     case .loginAction(_):
       // IGNORE ALL OTHER login actions
+      return .none
+
+    case .leftSideViewClicked:
+      return .none
+
+
+    case .sidebarRightClicked:
+      if state.rightSideState == nil {
+        if let activeSlice = Model.shared.slices.first(where: {$0.active}) {
+          state.rightSideState = RightSideState(slice: activeSlice)
+        }
+      } else {
+        state.rightSideState = nil
+      }
+      return .none
+      
+    case .rightSideAction(_):
       return .none
     }
   }

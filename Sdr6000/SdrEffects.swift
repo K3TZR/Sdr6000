@@ -9,7 +9,6 @@ import Foundation
 import ComposableArchitecture
 import SwiftUI
 
-import TcpCommands
 import Api6000
 import Shared
 

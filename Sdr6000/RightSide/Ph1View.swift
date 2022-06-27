@@ -86,7 +86,7 @@ public struct Ph1View: View {
       }
       Divider().background(.blue)
     }
-    .frame(height: 210)
+    .frame(width: 260, height: 210)
     .padding(.horizontal, 10)
   }
 }
@@ -97,6 +97,5 @@ public struct Ph1View: View {
 struct Ph1View_Previews: PreviewProvider {
   static var previews: some View {
     Ph1View()
-      .frame(width: 260)
   }
 }

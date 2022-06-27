@@ -66,7 +66,7 @@ public struct CwView: View {
       Spacer()
       Divider().background(.blue)
     }
-    .frame(height: 200)
+    .frame(width: 260, height: 200)
     .padding(.horizontal, 10)
   }
 }
@@ -77,6 +77,5 @@ public struct CwView: View {
 struct CwView_Previews: PreviewProvider {
     static var previews: some View {
       CwView()
-        .frame(width: 260)
     }
 }

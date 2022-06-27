@@ -75,7 +75,7 @@ public struct TxView: View {
       
       Divider().background(.blue)
     }
-    .frame(height: 230)
+    .frame(width: 260, height: 230)
     .padding(.horizontal, 10)
   }
 }
@@ -86,6 +86,5 @@ public struct TxView: View {
 struct TxView_Previews: PreviewProvider {
   static var previews: some View {
     TxView()
-      .frame(width: 260)
   }
 }

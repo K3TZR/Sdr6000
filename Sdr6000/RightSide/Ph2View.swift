@@ -57,7 +57,7 @@ public struct Ph2View: View {
       }
       Divider().background(.blue)
     }
-    .frame(height: 160)
+    .frame(width: 260, height: 160)
     .padding(.horizontal, 10)
   }
 }
@@ -68,6 +68,5 @@ public struct Ph2View: View {
 struct Ph2View_Previews: PreviewProvider {
     static var previews: some View {
       Ph2View()
-        .frame(width: 260)
     }
 }

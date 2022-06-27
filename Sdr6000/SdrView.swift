@@ -24,8 +24,8 @@ public struct SdrView: View {
     self.store = store
   }
   
-  @AppStorage(wrappedValue: false, "leftSideView") var leftSideView: Bool
-  @AppStorage(wrappedValue: false, "rightSideView") var rightSideView: Bool
+//  @AppStorage(wrappedValue: false, "leftSideView") var leftSideView: Bool
+//  @AppStorage(wrappedValue: false, "rightSideView") var rightSideView: Bool
   @State var leftWidth: CGFloat = 75
   @State var rightWidth: CGFloat = 275
   @State var totalWidthMin: CGFloat = 500
@@ -35,21 +35,21 @@ public struct SdrView: View {
       
       VStack {
         HStack(spacing: 0) {
-          if leftSideView {
+          if viewStore.leftSideView {
             LeftSideView()
-              .frame(width: leftWidth)
+//              .frame(width: leftWidth)
             Divider()
           }
           VSplitView {
             PanadapterContainerView()
             WaterfallContainerView()
           }.frame(minWidth: totalWidthMin - leftWidth - rightWidth,  maxWidth: .infinity, minHeight: 430)
-          if rightSideView {
+          if viewStore.rightSideState != nil {
             Divider()
             RightSideView(
               store:
                 Store(
-                  initialState: RightSideState(),
+                  initialState: viewStore.rightSideState!,
                   reducer: rightSideReducer,
                   environment: RightSideEnvironment()
                 )
@@ -81,13 +81,14 @@ public struct SdrView: View {
           Image(systemName: "sidebar.left")
             .font(.system(size: 24, weight: .regular))
             .onTapGesture(perform: {
-              leftSideView.toggle()
+              viewStore.send(.leftSideViewClicked)
             })
+            .disabled(!viewStore.isConnected)
         }
         
         ToolbarItemGroup(placement: .principal) {
-          Button(viewStore.radio == nil ? "Connect" : "Disconnect") { viewStore.send(.connectButton) }
-            .keyboardShortcut(viewStore.radio == nil ? .defaultAction : .cancelAction)
+          Button(viewStore.isConnected ? "Disconnect" : "Connect") { viewStore.send(.connectButton) }
+            .keyboardShortcut(viewStore.model.radio == nil ? .defaultAction : .cancelAction)
           
           Button("Pan") {}
           Button("Tnf") {}
@@ -111,8 +112,9 @@ public struct SdrView: View {
           Image(systemName: "sidebar.right")
             .font(.system(size: 24, weight: .regular))
             .onTapGesture(perform: {
-              rightSideView.toggle()
+              viewStore.send(.sidebarRightClicked)
             })
+            .disabled(!viewStore.isConnected)
         }
       }
     }
