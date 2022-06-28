@@ -63,6 +63,12 @@ public struct SdrView: View {
       
       .onAppear(perform: { viewStore.send(.onAppear) } )
       
+      // alert dialogs
+      .alert(
+        self.store.scope(state: \.alert),
+        dismiss: .alertDismissed
+      )
+      
       // Picker sheet
       .sheet(
         isPresented: viewStore.binding(
