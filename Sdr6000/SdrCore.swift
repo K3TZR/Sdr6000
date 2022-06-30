@@ -80,14 +80,16 @@ public struct SdrState: Equatable {
   public var forceWanLogin = false
   public var initialized = false
   public var isConnected = false
-  public var leftSideView = false
+  public var leftSideVisible = false
+  public var leftSideState = LeftSideState()
   public var lanListener: LanListener?
   public var loginState: LoginState? = nil
   public var model: Model { Model.shared }
   public var pendingWanId: UUID?
   public var pickerState: PickerState? = nil
-  public var rightSideView = false
-  public var rightSideState: RightSideState?
+  public var rightSideVisible = false
+  public var rightSideState = RightSideState()
+
   public var tcp = Tcp()
   public var wanListener: WanListener?
   
@@ -115,17 +117,18 @@ public enum SdrAction: Equatable {
   case loginAction(LoginAction)
   case pickerAction(PickerAction)
   case rightSideAction(RightSideAction)
-
+  case leftSideAction(LeftSideAction)
+  
   // Effects related
   case cancelEffects
   case checkConnectionStatus(UUID)
   case clientChangeReceived(ClientUpdate)
   case finishInitialization
-  case leftSideViewClicked
   case logAlertReceived(LogEntry)
   case meterReceived(Meter)
   case openSelection(UUID, Handle?)
   case packetChangeReceived(PacketUpdate)
+  case sidebarLeftClicked
   case sidebarRightClicked
   case testResult(SmartlinkTestResult)
   case tcpMessage(TcpMessage)
@@ -137,8 +140,15 @@ public struct SdrEnvironment {
 }
 
 public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
+  leftSideReducer
+//    .optional()
+    .pullback(
+      state: \SdrState.leftSideState,
+      action: /SdrAction.leftSideAction,
+      environment: { _ in LeftSideEnvironment() }
+    ),
   rightSideReducer
-    .optional()
+//    .optional()
     .pullback(
       state: \SdrState.rightSideState,
       action: /SdrAction.rightSideAction,
@@ -251,6 +261,8 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
         state.model.radio?.disconnect()
         state.model.radio = nil
         state.isConnected = false
+        state.leftSideVisible = false
+        state.rightSideVisible = false
         return .none
       }
       
@@ -459,21 +471,18 @@ public let sdrReducer = Reducer<SdrState, SdrAction, SdrEnvironment>.combine(
       // IGNORE ALL OTHER login actions
       return .none
 
-    case .leftSideViewClicked:
+    case .sidebarLeftClicked:
+      state.leftSideVisible.toggle()
       return .none
 
-
     case .sidebarRightClicked:
-      if state.rightSideState == nil {
-        if let activeSlice = Model.shared.slices.first(where: {$0.active}) {
-          state.rightSideState = RightSideState(slice: activeSlice)
-        }
-      } else {
-        state.rightSideState = nil
-      }
+      state.rightSideVisible.toggle()
       return .none
       
     case .rightSideAction(_):
+      return .none
+    
+    case .leftSideAction(_):
       return .none
     }
   }

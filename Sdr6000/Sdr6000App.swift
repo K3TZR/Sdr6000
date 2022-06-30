@@ -9,6 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 import LogView
+import Api6000
 import Shared
 
 // ----------------------------------------------------------------------------
@@ -18,6 +19,7 @@ private let kAntennaTitle = "Antenna Selection"
 private let kBandTitle = "Band Selection"
 private let kDaxTitle = "Dax Selection"
 private let kDisplayTitle = "Display Selection"
+private let kFlagTitle = "Slice Flag"
 private let kCwTitle = "Cw Settings"
 private let kEqTitle = "Equalizer Settings"
 private let kPh1Title = "Phone 1 Settings"
@@ -68,23 +70,25 @@ struct Sdr6000App: App {
     .windowToolbarStyle(.expanded)
     .handlesExternalEvents(matching: Set(arrayLiteral: "SdrViewer"))
     .commands {
-      CommandMenu("Left Views") {
-        Button(action: { WindowChoice.antenna.open(kAntennaTitle) }, label: { Text(kAntennaTitle) }).keyboardShortcut("a", modifiers: [.control, .command])
-        Button(action: { WindowChoice.band.open(kBandTitle) }, label: { Text(kBandTitle) }).keyboardShortcut("b", modifiers: [.control, .command])
-        Button(action: { WindowChoice.dax.open(kDaxTitle) }, label: { Text(kDaxTitle) }).keyboardShortcut("d", modifiers: [.control, .command])
-        Button(action: { WindowChoice.display.open(kDisplayTitle) }, label: { Text(kDisplayTitle) }).keyboardShortcut("s", modifiers: [.control, .command])
-      }
-      CommandMenu("Right Views") {
-        Button(action: { WindowChoice.cw.open(kCwTitle) }, label: { Text(kCwTitle) }).keyboardShortcut("c", modifiers: [.control, .command])
-        Button(action: { WindowChoice.eq.open(kEqTitle) }, label: { Text(kEqTitle) }).keyboardShortcut("e", modifiers: [.control, .command])
-        Button(action: { WindowChoice.ph1.open(kPh1Title) }, label: { Text(kPh1Title) }).keyboardShortcut("1", modifiers: [.control, .command])
-        Button(action: { WindowChoice.ph2.open(kPh2Title) }, label: { Text(kPh2Title) }).keyboardShortcut("2", modifiers: [.control, .command])
-        Button(action: { WindowChoice.tx.open(kTxTitle) }, label: { Text(kTxTitle) }).keyboardShortcut("t", modifiers: [.control, .command])
-      }
-      CommandMenu("Other") {
-        Button(action: { WindowChoice.profile.open(kProfileTitle) }, label: { Text(kProfileTitle) }).keyboardShortcut("p", modifiers: [.control, .command])
-        Button(action: { WindowChoice.log.open(kLogTitle) }, label: { Text(kLogTitle) }).keyboardShortcut("l", modifiers: [.control, .command])
-      }
+//      CommandMenu("Left Views") {
+//        Button(action: { WindowChoice.antenna.open(kAntennaTitle) }, label: { Text(kAntennaTitle) }).keyboardShortcut("a", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.band.open(kBandTitle) }, label: { Text(kBandTitle) }).keyboardShortcut("b", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.dax.open(kDaxTitle) }, label: { Text(kDaxTitle) }).keyboardShortcut("d", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.display.open(kDisplayTitle) }, label: { Text(kDisplayTitle) }).keyboardShortcut("s", modifiers: [.control, .command])
+//      }
+//      CommandMenu("Right Views") {
+//        Button(action: { WindowChoice.flag.open(kFlagTitle) }, label: { Text(kFlagTitle) }).keyboardShortcut("f", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.cw.open(kCwTitle) }, label: { Text(kCwTitle) }).keyboardShortcut("c", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.eq.open(kEqTitle) }, label: { Text(kEqTitle) }).keyboardShortcut("e", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.ph1.open(kPh1Title) }, label: { Text(kPh1Title) }).keyboardShortcut("1", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.ph2.open(kPh2Title) }, label: { Text(kPh2Title) }).keyboardShortcut("2", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.tx.open(kTxTitle) }, label: { Text(kTxTitle) }).keyboardShortcut("t", modifiers: [.control, .command])
+//      }
+//      CommandMenu("Other") {
+//        Button(action: { WindowChoice.profile.open(kProfileTitle) }, label: { Text(kProfileTitle) }).keyboardShortcut("p", modifiers: [.control, .command])
+//        Button(action: { WindowChoice.log.open(kLogTitle) }, label: { Text(kLogTitle) }).keyboardShortcut("l", modifiers: [.control, .command])
+//      }
+
       //remove the "New" menu item
       CommandGroup(replacing: CommandGroupPlacement.newItem) {}
       ToolbarCommands()
@@ -104,6 +108,11 @@ struct Sdr6000App: App {
           .frame(width: 275, height: 350)
           .padding()
       }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.profile.rawValue))
+      
+//      WindowGroup(kFlagTitle) {
+//        FlagView()
+//          .frame(width: 275, height: 230)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.flag.rawValue))
       
       WindowGroup(kTxTitle) {
         TxView()
@@ -176,6 +185,7 @@ public enum WindowChoice: String, CaseIterable {
   case dax
   case display
   case eq
+  case flag
   case log
   case ph1
   case ph2

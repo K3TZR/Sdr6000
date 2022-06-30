@@ -47,6 +47,7 @@
 		9F624A52284AF035008DF133 /* WaterfallContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F624A51284AF035008DF133 /* WaterfallContainerView.swift */; };
 		9FBD28F42862B8A60074959E /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 9FBD28F32862B8A60074959E /* Shared */; };
 		9FBD28F62862BA750074959E /* Api6000 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FBD28F52862BA750074959E /* Api6000 */; };
+		9FBD2920286C84720074959E /* LeftSideCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBD291F286C84720074959E /* LeftSideCore.swift */; };
 		9FE6B66C285CEE43006A18D3 /* SdrEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */; };
 		9FE6B673285CFE41006A18D3 /* Vita in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B672285CFE41006A18D3 /* Vita */; };
 		9FE6B675285CFE41006A18D3 /* XCGWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE6B674285CFE41006A18D3 /* XCGWrapper */; };
@@ -90,6 +91,7 @@
 		9F624A45284AF027008DF133 /* RadioSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSettingsView.swift; sourceTree = "<group>"; };
 		9F624A46284AF027008DF133 /* ColorsSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsSettingsView.swift; sourceTree = "<group>"; };
 		9F624A51284AF035008DF133 /* WaterfallContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallContainerView.swift; sourceTree = "<group>"; };
+		9FBD291F286C84720074959E /* LeftSideCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideCore.swift; sourceTree = "<group>"; };
 		9FE6B66B285CEE43006A18D3 /* SdrEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdrEffects.swift; sourceTree = "<group>"; };
 		9FE6B676285D00CE006A18D3 /* OtherSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsView.swift; sourceTree = "<group>"; };
 		9FE6B678285F550F006A18D3 /* RightSideCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideCore.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		9FA81C2B284C514600EEF923 /* LeftSide */ = {
 			isa = PBXGroup;
 			children = (
+				9FBD291F286C84720074959E /* LeftSideCore.swift */,
 				9F624A21284AEFD5008DF133 /* LeftSideView.swift */,
 				9F624A25284AEFE0008DF133 /* AntPopover.swift */,
 				9F624A23284AEFE0008DF133 /* BandPopover.swift */,
@@ -341,6 +344,7 @@
 				9F624A4C284AF027008DF133 /* GpsSettingsView.swift in Sources */,
 				9F624A4B284AF027008DF133 /* InfoSettingsView.swift in Sources */,
 				9F624A4F284AF027008DF133 /* RadioSettingsView.swift in Sources */,
+				9FBD2920286C84720074959E /* LeftSideCore.swift in Sources */,
 				9F624A22284AEFD5008DF133 /* LeftSideView.swift in Sources */,
 				9F624A39284AEFFF008DF133 /* CwView.swift in Sources */,
 				9F624A2E284AEFF2008DF133 /* ProfileView.swift in Sources */,
@@ -501,7 +505,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,7 +537,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = net.k3tzr.Sdr6000;
 				PRODUCT_NAME = "$(TARGET_NAME)";

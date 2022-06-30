@@ -32,29 +32,37 @@ public struct SdrView: View {
   
   public var body: some View {
     WithViewStore(self.store) { viewStore in
-      
+    
       VStack {
         HStack(spacing: 0) {
-          if viewStore.leftSideView {
-            LeftSideView()
-//              .frame(width: leftWidth)
-            Divider()
+          if viewStore.leftSideVisible {
+            LeftSideView(
+              store:
+                Store(
+                  initialState: viewStore.leftSideState,
+                  reducer: leftSideReducer,
+                  environment: LeftSideEnvironment()
+                )
+            )
+//            .frame(width: 0)
           }
+          Divider()
           VSplitView {
             PanadapterContainerView()
             WaterfallContainerView()
-          }.frame(minWidth: totalWidthMin - leftWidth - rightWidth,  maxWidth: .infinity, minHeight: 430)
-          if viewStore.rightSideState != nil {
-            Divider()
+          }
+          .frame(minWidth: totalWidthMin,  maxWidth: .infinity, minHeight: 430)
+          Divider()
+          if viewStore.rightSideVisible {
             RightSideView(
               store:
                 Store(
-                  initialState: viewStore.rightSideState!,
+                  initialState: viewStore.rightSideState,
                   reducer: rightSideReducer,
                   environment: RightSideEnvironment()
                 )
             )
-//            .frame(width: rightWidth)
+//            .frame(width: 0)
           }
         }
         BottomButtonsView()
@@ -62,7 +70,7 @@ public struct SdrView: View {
       .frame(minWidth: totalWidthMin, maxWidth: .infinity)
       
       .onAppear(perform: { viewStore.send(.onAppear) } )
-      
+            
       // alert dialogs
       .alert(
         self.store.scope(state: \.alert),
@@ -84,12 +92,14 @@ public struct SdrView: View {
       
       .toolbar {
         ToolbarItemGroup(placement: .navigation) {
-          Image(systemName: "sidebar.left")
-            .font(.system(size: 24, weight: .regular))
-            .onTapGesture(perform: {
-              viewStore.send(.leftSideViewClicked)
-            })
-            .disabled(!viewStore.isConnected)
+          Button {
+            viewStore.send(.sidebarLeftClicked)
+          } label: {
+            Image(systemName: "sidebar.left")
+              .font(.system(size: 18, weight: .regular))
+          }
+          .keyboardShortcut("l", modifiers: [.control, .command])
+          .disabled(!viewStore.isConnected)
         }
         
         ToolbarItemGroup(placement: .principal) {
@@ -115,12 +125,14 @@ public struct SdrView: View {
           Spacer()
           Button("Log View") { WindowChoice.log.open("Log View") }
           
-          Image(systemName: "sidebar.right")
-            .font(.system(size: 24, weight: .regular))
-            .onTapGesture(perform: {
-              viewStore.send(.sidebarRightClicked)
-            })
-            .disabled(!viewStore.isConnected)
+          Button {
+            viewStore.send(.sidebarRightClicked)
+          } label: {
+            Image(systemName: "sidebar.right")
+              .font(.system(size: 18, weight: .regular))
+          }
+          .keyboardShortcut("r", modifiers: [.control, .command])
+          .disabled(!viewStore.isConnected)
         }
       }
     }

@@ -18,37 +18,19 @@ import Shared
 // MARK: - State, Actions & Environment
 
 public struct RightSideState: Equatable {
-  public var rxIsOn: Bool
-  public var txIsOn: Bool
-  public var ph1IsOn: Bool
-  public var ph2IsOn: Bool
-  public var cwIsOn: Bool
-  public var eqIsOn: Bool
   public var subViewSelection: String
   public var flagMinimized: Bool
-  public var slice: Slice
+  public var slice: Slice?
   public var flagState: FlagState?
   public var forceUpdate = false
   
   public init
   (
-    rxIsOn: Bool = false,
-    txIsOn: Bool = false,
-    ph1IsOn: Bool = false,
-    ph2IsOn: Bool = false,
-    cwIsOn: Bool = false,
-    eqIsOn: Bool = false,
     subViewSelection: String = "none",
     flagMinimized: Bool = false,
-    slice: Slice
+    slice: Slice? = nil
   )
   {
-    self.rxIsOn = rxIsOn
-    self.txIsOn = txIsOn
-    self.ph1IsOn = ph1IsOn
-    self.ph2IsOn = ph2IsOn
-    self.cwIsOn = cwIsOn
-    self.eqIsOn = eqIsOn
     self.subViewSelection = subViewSelection
     self.flagMinimized = flagMinimized
     self.slice = slice
@@ -56,6 +38,7 @@ public struct RightSideState: Equatable {
 }
 
 public enum RightSideAction: Equatable {
+  case onAppear
   
   // UI controls
   case toggle(WritableKeyPath<RightSideState, Bool>)
@@ -97,9 +80,14 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
   
   switch action {
     
+  case .onAppear:
+    state.slice = Model.shared.slices.first(where: {$0.active})
+    return .none
+    
   case .toggle(let keyPath):
     // handles all buttons with a Bool state
     state[keyPath: keyPath].toggle()
+    state.forceUpdate.toggle()
     return .none
     
   case .subViewSelectionChanged(let selection):
@@ -118,26 +106,36 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
     return .none
     
   case .rxAntennaSelection(let antenna):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .rxAnt, value: antenna)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .rxAnt, value: antenna)
+    }
     return .none
     
   case .txAntennaSelection(let antenna):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .txAnt, value: antenna)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .txAnt, value: antenna)
+    }
     return .none
     
   case .splitClicked:
     return .none
     
   case .nbClicked:
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .nbEnabled, value: true )
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .nbEnabled, value: true )
+    }
     return .none
     
   case .nrClicked:
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .nrEnabled, value: true)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .nrEnabled, value: true)
+    }
     return .none
     
   case .anfClicked:
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .anfEnabled, value: true)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .anfEnabled, value: true)
+    }
     return .none
     
   case .qskClicked:
@@ -150,19 +148,27 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
     return .none
     
   case .audioGainChanged(let gain):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .audioGain, value: gain)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: gain)
+    }
     return .none
-
+    
   case .audioPanChanged(let pan):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .audioGain, value: pan)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: pan)
+    }
     return .none
-
+    
   case .agcModeChanged(let mode):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .agcMode, value: mode)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .agcMode, value: mode)
+    }
     return .none
-
+    
   case .agcThresholdChanged(let threshold):
-    Slice.setProperty(radio: Model.shared.radio!, id: state.slice.id, property: .agcThreshold, value: threshold)
+    if let slice = state.slice {
+      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .agcThreshold, value: threshold)
+    }
     return .none
   }
 }
