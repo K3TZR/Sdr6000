@@ -20,20 +20,23 @@ import Shared
 public struct RightSideState: Equatable {
   public var subViewSelection: String
   public var flagMinimized: Bool
-  public var slice: Slice?
+  public var model: Model = Model.shared
+  public var activeSlice: Slice? = Model.shared.activeSlice
   public var flagState: FlagState?
   public var forceUpdate = false
   
   public init
   (
     subViewSelection: String = "none",
-    flagMinimized: Bool = false,
-    slice: Slice? = nil
+    flagMinimized: Bool = false
+//    model: Model = Model.shared,
+//    activeSlice: Slice? { Model.shared.activeSlice }
   )
   {
     self.subViewSelection = subViewSelection
     self.flagMinimized = flagMinimized
-    self.slice = slice
+//    self.model = model
+//    self.activeSlice = activeSlice
   }
 }
 
@@ -81,7 +84,7 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
   switch action {
     
   case .onAppear:
-    state.slice = Model.shared.slices.first(where: {$0.active})
+//    state.activeSlice = state.model.activeSlice
     return .none
     
   case .toggle(let keyPath):
@@ -106,14 +109,14 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
     return .none
     
   case .rxAntennaSelection(let antenna):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .rxAnt, value: antenna)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .rxAnt, value: antenna)
     }
     return .none
     
   case .txAntennaSelection(let antenna):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .txAnt, value: antenna)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .txAnt, value: antenna)
     }
     return .none
     
@@ -121,20 +124,20 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
     return .none
     
   case .nbClicked:
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .nbEnabled, value: true )
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .nbEnabled, value: true )
     }
     return .none
     
   case .nrClicked:
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .nrEnabled, value: true)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .nrEnabled, value: true)
     }
     return .none
     
   case .anfClicked:
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .anfEnabled, value: true)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .anfEnabled, value: true)
     }
     return .none
     
@@ -148,26 +151,26 @@ public let rightSideReducer = Reducer<RightSideState, RightSideAction, RightSide
     return .none
     
   case .audioGainChanged(let gain):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: gain)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: gain)
     }
     return .none
     
   case .audioPanChanged(let pan):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: pan)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .audioGain, value: pan)
     }
     return .none
     
   case .agcModeChanged(let mode):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .agcMode, value: mode)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .agcMode, value: mode)
     }
     return .none
     
   case .agcThresholdChanged(let threshold):
-    if let slice = state.slice {
-      Slice.setProperty(radio: Model.shared.radio!, id: slice.id, property: .agcThreshold, value: threshold)
+    if let slice = state.model.activeSlice {
+      Slice.setSliceProperty(radio: Model.shared.radio!, id: slice.id, property: .agcThreshold, value: threshold)
     }
     return .none
   }

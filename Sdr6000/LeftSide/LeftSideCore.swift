@@ -18,14 +18,20 @@ import Shared
 // MARK: - State, Actions & Environment
 
 public struct LeftSideState: Equatable {
+  public var panadapter: Panadapter?
+  public var slice: Slice?
   public var forceUpdate = false
   public var showBands: Bool
   
   public init
   (
+    panadapter: Panadapter? = nil,
+    slice: Slice? = nil,
     showBands: Bool = false
   )
   {
+    self.panadapter = panadapter
+    self.slice = slice
     self.showBands = showBands
   }
 }
@@ -33,6 +39,8 @@ public struct LeftSideState: Equatable {
 public enum LeftSideAction: Equatable {
   
   case noAction
+  case onAppear
+  case bandChanged(String)
 }
 
 public struct LeftSideEnvironment {
@@ -47,6 +55,19 @@ public let leftSideReducer = Reducer<LeftSideState, LeftSideAction, LeftSideEnvi
 { state, action, environment in
   
   switch action {
+    
+  case .onAppear:
+    if let slice = Model.shared.slices.first(where: {$0.active}) {
+      state.slice = slice
+      state.panadapter = Model.shared.panadapters[id: slice.panadapterId]
+    }
+    return .none
+
+  case .bandChanged(let band):
+    if let panadapter = state.panadapter {
+      Panadapter.setPanadapterProperty(radio: Model.shared.radio!, id: panadapter.id, property: .band, value: band)
+    }
+    return .none
 
   case .noAction:
     return .none

@@ -113,57 +113,57 @@ struct Sdr6000App: App {
 //        FlagView()
 //          .frame(width: 275, height: 230)
 //      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.flag.rawValue))
-      
-      WindowGroup(kTxTitle) {
-        TxView()
-          .frame(width: 275, height: 230)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.tx.rawValue))
-      
-      WindowGroup(kPh1Title) {
-        Ph1View()
-          .frame(width: 275, height: 210)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.ph1.rawValue))
-      
-      WindowGroup(kPh2Title) {
-        Ph2View()
-          .frame(width: 275, height: 160)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.ph2.rawValue))
-      
-      WindowGroup(kCwTitle) {
-        CwView()
-          .frame(width: 275, height: 200)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.cw.rawValue))
-    
-      WindowGroup(kEqTitle) {
-        EqView()
-          .frame(width: 275, height: 280)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.eq.rawValue))
-    }
-
-    Group {
-      WindowGroup(kAntennaTitle) {
-        AntPopover()
-          .frame(width: 250, height: 150)
-          .padding()
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.antenna.rawValue))
-      
-      WindowGroup(kBandTitle) {
-        BandPopover()
-          .frame(width: 170, height: 180)
-          .padding(10)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.band.rawValue))
-      
-      WindowGroup(kDaxTitle) {
-        DaxPopover()
-          .frame(width: 250, height: 75)
-          .padding()
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.dax.rawValue))
-      
-      WindowGroup(kDisplayTitle) {
-        DisplayPopover()
-          .frame(width:260)
-          .padding(10)
-      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.display.rawValue))
+//
+//      WindowGroup(kTxTitle) {
+//        TxView()
+//          .frame(width: 275, height: 230)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.tx.rawValue))
+//
+//      WindowGroup(kPh1Title) {
+//        Ph1View()
+//          .frame(width: 275, height: 210)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.ph1.rawValue))
+//
+//      WindowGroup(kPh2Title) {
+//        Ph2View()
+//          .frame(width: 275, height: 160)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.ph2.rawValue))
+//
+//      WindowGroup(kCwTitle) {
+//        CwView()
+//          .frame(width: 275, height: 200)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.cw.rawValue))
+//
+//      WindowGroup(kEqTitle) {
+//        EqView()
+//          .frame(width: 275, height: 280)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.eq.rawValue))
+//    }
+//
+//    Group {
+//      WindowGroup(kAntennaTitle) {
+//        AntPopover()
+//          .frame(width: 250, height: 150)
+//          .padding()
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.antenna.rawValue))
+//
+//      WindowGroup(kBandTitle) {
+//        BandPopover()
+//          .frame(width: 170, height: 180)
+//          .padding(10)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.band.rawValue))
+//
+//      WindowGroup(kDaxTitle) {
+//        DaxPopover()
+//          .frame(width: 250, height: 75)
+//          .padding()
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.dax.rawValue))
+//
+//      WindowGroup(kDisplayTitle) {
+//        DisplayPopover()
+//          .frame(width:260)
+//          .padding(10)
+//      }.handlesExternalEvents(matching: Set(arrayLiteral: WindowChoice.display.rawValue))
     }
 
     // ----------------------------------------------------------------------------

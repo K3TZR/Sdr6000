@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+import Api6000
 
 struct BandPopover: View {
+  let store: Store<LeftSideState, LeftSideAction>
   
   @State var band = "40"
   @State var bands =
@@ -20,15 +24,18 @@ struct BandPopover: View {
   
   var body: some View {
     
-    let columns = [
-      GridItem(.fixed(40)),
-      GridItem(.fixed(40)),
-      GridItem(.fixed(40))
-    ]
-    LazyVGrid(columns: columns, spacing: 10) {
-      ForEach(bands, id: \.self) { band in
-        Button( action: {  })
-        { Text(band).frame(width: 40) }
+    WithViewStore(store) { viewStore in
+      
+      let columns = [
+        GridItem(.fixed(40)),
+        GridItem(.fixed(40)),
+        GridItem(.fixed(40))
+      ]
+      LazyVGrid(columns: columns, spacing: 10) {
+        ForEach(bands, id: \.self) { band in
+          Button( action: {  viewStore.send( .bandChanged(band) )})
+          { Text(band).frame(width: 40) }
+        }
       }
     }
     .frame(width: 170, height: 180)
@@ -38,6 +45,14 @@ struct BandPopover: View {
 
 struct BandPopover_Previews: PreviewProvider {
     static var previews: some View {
-      BandPopover()
+      BandPopover(
+        store:
+          Store(
+            initialState: LeftSideState(),
+            reducer: leftSideReducer,
+            environment: LeftSideEnvironment()
+          )
+      )
+      
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+import Api6000
 import LoginView
 import ClientView
 import PickerView
@@ -39,12 +40,11 @@ public struct SdrView: View {
             LeftSideView(
               store:
                 Store(
-                  initialState: viewStore.leftSideState,
+                  initialState: LeftSideState(),
                   reducer: leftSideReducer,
                   environment: LeftSideEnvironment()
                 )
             )
-//            .frame(width: 0)
           }
           Divider()
           VSplitView {
@@ -54,15 +54,14 @@ public struct SdrView: View {
           .frame(minWidth: totalWidthMin,  maxWidth: .infinity, minHeight: 430)
           Divider()
           if viewStore.rightSideVisible {
-            RightSideView(
-              store:
-                Store(
-                  initialState: viewStore.rightSideState,
-                  reducer: rightSideReducer,
-                  environment: RightSideEnvironment()
-                )
-            )
-//            .frame(width: 0)
+            RightSideView(slice: Model.shared.activeSlice!)
+//              store:
+//                Store(
+//                  initialState: RightSideState(),
+//                  reducer: rightSideReducer,
+//                  environment: RightSideEnvironment()
+//                )
+//            )
           }
         }
         BottomButtonsView()
