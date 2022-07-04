@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "apicomponents",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/K3TZR/ApiComponents.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "2dabfa7dd31707e47e0f7ba0def904e0c39c4200"
-      }
-    },
-    {
       "identity" : "cocoaasyncsocket",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/robbiehanson/CocoaAsyncSocket",
